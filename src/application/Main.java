@@ -1,5 +1,6 @@
 package application;
 	
+import application.model.CookBook;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -18,6 +19,8 @@ import javafx.scene.Scene;
 public class Main extends Application {
 	
 	public static Stage stage;
+	public static CookBook cookBook;
+	public static final String DATA_FILE = "data/cookbook.dat";
 	
 	
 	@Override
