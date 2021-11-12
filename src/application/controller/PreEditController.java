@@ -152,16 +152,15 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 			labelError.setText("");
 			this.listIng.getItems().clear();
 			listIng.getItems().addAll(Main.currentRecipe.getIngredientsAsList());
+			textfieldIngName.setText("");
+			textfieldIngAmt.setText("");
 		}
 						
 	}
 	
-	public void clickIng() {
-		ingSelect = listIng.getSelectionModel().getSelectedIndex();
-	}
-	
 	public void handleIngDelete(ActionEvent event) {
 		// TODO Auto-generated method stub
+		ingSelect = listIng.getSelectionModel().getSelectedIndex();
 		if (ingSelect > -1 && ingSelect < Main.currentRecipe.getIngredients().size()) {
 			Main.currentRecipe.getIngredients().remove(ingSelect);
 			ingSelect = -1;
@@ -191,15 +190,14 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 			labelError.setText("");
 			this.listTool.getItems().clear();
 			this.listTool.getItems().addAll(Main.currentRecipe.getToolsAsList());
+			textfieldTool.setText("");
 		}
 	}
 	
-	public void clickTool() {
-		toolSelect = listTool.getSelectionModel().getSelectedIndex();
-	}
-	
-	
+		
 	public void handleToolDelete(ActionEvent event) {
+		
+		toolSelect = listTool.getSelectionModel().getSelectedIndex();
 	
 		if (toolSelect > -1 && toolSelect < Main.currentRecipe.getTools().size()) {
 			Main.currentRecipe.getTools().remove(toolSelect);
