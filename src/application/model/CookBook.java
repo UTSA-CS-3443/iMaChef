@@ -34,15 +34,19 @@ public class CookBook {
 			while (sc.hasNextLine()) {
 				String inLine = sc.nextLine();
 				
-				String[] tokens = inLine.split("|");
+				String[] tokens = inLine.split("`");
 				
 				if(tokens.length == 1) {
 					if (temp != null) {
 						ret.addRecipe(temp);
 					}
 					temp = new Recipe(tokens[0]);
+				} else if (tokens.length == 2) {
+					temp.addTool(tokens);
+				} else if (tokens.length == 3) {
+					temp.addIngredient(tokens);
 				} else if (tokens.length == 9) {
-					// TODO fix token length for step here
+					// TODO confirm token length for step here
 					temp.addStep(tokens);
 				} else if (tokens.length == 0) {
 					continue;
@@ -75,6 +79,12 @@ public class CookBook {
 			
 			for (Recipe tempRec : cookBook.getRecipes()) {
 				outPrint.print(tempRec.getName());
+				for (Ingredient ing : tempRec.getIngredients()) {
+					outPrint.print(ing.toData());
+				}
+				for (String tool : tempRec.getTools()) {
+					outPrint.print("tool`" + tool);
+				}
 				for (Step tempStep : tempRec.getSteps()) {
 					outPrint.print(tempStep.toData());
 				}
@@ -94,6 +104,12 @@ public class CookBook {
 	public void addRecipe( Recipe temp ) {
 		this.recipes.add(temp);
 	} // end of addRecipe method
+	
+	
+	public static String cleanString (String inString) {
+		return inString.replaceAll("`", "'");
+	}
+	
 
 	/**
 	 * @return the recipes

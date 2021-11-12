@@ -1,5 +1,8 @@
 package application.model;
 
+import javafx.collections.FXCollections;
+import javafx.scene.control.ChoiceBox;
+
 public class Ingredient {
 
 	private String name;
@@ -13,6 +16,18 @@ public class Ingredient {
 		
 	}
 
+	public String toData() {
+		String ret = this.name + "|" + String.valueOf(this.amount) + "|" + this.unit;
+		return ret;
+		
+	}
+	
+
+	public static void loadIngredientChoiceBox(ChoiceBox<String> cb) {
+		cb.setItems(FXCollections.observableArrayList("ea", "tsp", "/2 tsp", "Tbsp", "oz", "lb", "grams", "pinch", "cup", "/2 cup", "/3 cup", "/4 cup", "can", "oz can", "clove"));
+	}
+	
+		
 	/**
 	 * @return the name
 	 */

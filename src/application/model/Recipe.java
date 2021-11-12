@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
 public class Recipe {
 
 	private ArrayList<Step> steps;
@@ -30,7 +31,30 @@ public class Recipe {
 		this.steps.add(temp);
 	}
 	
-	public ObservableList<String> getToolsAsList(String[] clues) {
+	public void addIngredient (String[] tokens) {
+		Ingredient temp = new Ingredient(tokens[0], Double.parseDouble(tokens[1]), tokens[3]);
+		this.ingredients.add(temp);
+		
+	}
+	
+	public void addIngredient (String name, double amount, String unit) {
+		Ingredient temp = new Ingredient(name, amount, unit);
+		this.ingredients.add(temp);
+		
+	}
+	
+	
+	public void addTool (String[] tokens) {
+		this.tools.add(tokens[1]);
+		
+	}
+	
+
+	public void addTool (String tool) {
+		this.tools.add(tool);
+	}
+	
+	public ObservableList<String> getToolsAsList() {
 		ObservableList<String> ret = FXCollections.observableArrayList();
 		ret.removeAll(ret);
 		int size = this.tools.size();
@@ -44,7 +68,7 @@ public class Recipe {
 		return ret;
 	}
 	
-	public ObservableList<String> getIngredientsAsList(String[] clues) {
+	public ObservableList<String> getIngredientsAsList() {
 		ObservableList<String> ret = FXCollections.observableArrayList();
 		ret.removeAll(ret);
 		for (Ingredient temp : ingredients) {
@@ -55,6 +79,9 @@ public class Recipe {
 				
 		return ret;
 	}
+	
+	
+	
 	
 	// Auto-generated getters and setters beyond this point
 

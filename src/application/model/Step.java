@@ -1,5 +1,8 @@
 package application.model;
 
+import javafx.collections.FXCollections;
+import javafx.scene.control.ChoiceBox;
+
 public class Step {
 
 	private String name;
@@ -8,7 +11,6 @@ public class Step {
 	private String stepDurationType; // TODO: change durType to enum ?
 	private String mediaPath;
 	private String mediaType; // TODO: change medaiType to enum ?
-	
 	private int timerDuration;
 	private String timerDurationType;
 	private int repeat;
@@ -39,18 +41,29 @@ public class Step {
 	
 	public String toData() {
 		String ret = "";
-		ret += this.name + "|";
-		ret += this.desc + "|";
-		ret += String.valueOf(this.stepDuration) + "|";
-		ret += this.stepDurationType + "|";
-		ret += this.mediaPath + "|";
-		ret += this.mediaType + "|";
-		ret += String.valueOf(this.timerDuration) + "|";
-		ret += this.timerDurationType + "|";
+		ret += this.name + "`";
+		ret += this.desc + "`";
+		ret += String.valueOf(this.stepDuration) + "`";
+		ret += this.stepDurationType + "`";
+		ret += this.mediaPath + "`";
+		ret += this.mediaType + "`";
+		ret += String.valueOf(this.timerDuration) + "`";
+		ret += this.timerDurationType + "`";
 		ret += String.valueOf(this.repeat);
 		
 		
 		return ret;
+	}
+	
+	public static void setDurationChoiceBox(ChoiceBox<String> cb) {
+		cb.setItems(FXCollections.observableArrayList("sec", "min", "hr"));
+		
+		
+	}
+	
+	public static void setMediaChoiceBox(ChoiceBox<String> cb) {
+		cb.setItems(FXCollections.observableArrayList("image", "video"));
+		
 	}
 	
 	// Auto-generated getters and setters beyond this point
