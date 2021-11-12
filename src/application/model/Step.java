@@ -37,7 +37,7 @@ public class Step {
 		return ret;
 	} // end of parseStep method
 	
-	public String toData(Step temp) {
+	public String toData() {
 		String ret = "";
 		ret += this.name + "|";
 		ret += this.desc + "|";
@@ -48,9 +48,137 @@ public class Step {
 		ret += String.valueOf(this.timerDuration) + "|";
 		ret += this.timerDurationType + "|";
 		ret += String.valueOf(this.repeat);
-		ret += "\n";
+		
 		
 		return ret;
+	}
+	
+	// Auto-generated getters and setters beyond this point
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the desc
+	 */
+	public String getDesc() {
+		return desc;
+	}
+
+	/**
+	 * @param desc the desc to set
+	 */
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	/**
+	 * @return the stepDuration
+	 */
+	public int getStepDuration() {
+		return stepDuration;
+	}
+
+	/**
+	 * @param stepDuration the stepDuration to set
+	 */
+	public void setStepDuration(int stepDuration) {
+		this.stepDuration = stepDuration;
+	}
+
+	/**
+	 * @return the stepDurationType
+	 */
+	public String getStepDurationType() {
+		return stepDurationType;
+	}
+
+	/**
+	 * @param stepDurationType the stepDurationType to set
+	 */
+	public void setStepDurationType(String stepDurationType) {
+		this.stepDurationType = stepDurationType;
+	}
+
+	/**
+	 * @return the mediaPath
+	 */
+	public String getMediaPath() {
+		return mediaPath;
+	}
+
+	/**
+	 * @param mediaPath the mediaPath to set
+	 */
+	public void setMediaPath(String mediaPath) {
+		this.mediaPath = mediaPath;
+	}
+
+	/**
+	 * @return the mediaType
+	 */
+	public String getMediaType() {
+		return mediaType;
+	}
+
+	/**
+	 * @param mediaType the mediaType to set
+	 */
+	public void setMediaType(String mediaType) {
+		this.mediaType = mediaType;
+	}
+
+	/**
+	 * @return the timerDuration
+	 */
+	public int getTimerDuration() {
+		return timerDuration;
+	}
+
+	/**
+	 * @param timerDuration the timerDuration to set
+	 */
+	public void setTimerDuration(int timerDuration) {
+		this.timerDuration = timerDuration;
+	}
+
+	/**
+	 * @return the timerDurationType
+	 */
+	public String getTimerDurationType() {
+		return timerDurationType;
+	}
+
+	/**
+	 * @param timerDurationType the timerDurationType to set
+	 */
+	public void setTimerDurationType(String timerDurationType) {
+		this.timerDurationType = timerDurationType;
+	}
+
+	/**
+	 * @return the repeat
+	 */
+	public int getRepeat() {
+		return repeat;
+	}
+
+	/**
+	 * @param repeat the repeat to set
+	 */
+	public void setRepeat(int repeat) {
+		this.repeat = repeat;
 	}
 	
 	

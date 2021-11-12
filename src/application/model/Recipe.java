@@ -47,7 +47,6 @@ public class Recipe {
 	public ObservableList<String> getIngredientsAsList(String[] clues) {
 		ObservableList<String> ret = FXCollections.observableArrayList();
 		ret.removeAll(ret);
-		int size = this.ingredients.size();
 		for (Ingredient temp : ingredients) {
 			String desc = temp.getName() + " - " + temp.getAmount() + " " + temp.getUnit();
 			ret.add(desc);
@@ -56,5 +55,65 @@ public class Recipe {
 				
 		return ret;
 	}
+	
+	// Auto-generated getters and setters beyond this point
+
+	/**
+	 * @return the steps
+	 */
+	public ArrayList<Step> getSteps() {
+		return steps;
+	}
+
+	/**
+	 * @param steps the steps to set
+	 */
+	public void setSteps(ArrayList<Step> steps) {
+		this.steps = steps;
+	}
+
+	/**
+	 * @return the tools
+	 */
+	public ArrayList<String> getTools() {
+		return tools;
+	}
+
+	/**
+	 * @param tools the tools to set
+	 */
+	public void setTools(ArrayList<String> tools) {
+		this.tools = tools;
+	}
+
+	/**
+	 * @return the ingredients
+	 */
+	public ArrayList<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	/**
+	 * @param ingredients the ingredients to set
+	 */
+	public void setIngredients(ArrayList<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 	
 } // end of Recipe class
