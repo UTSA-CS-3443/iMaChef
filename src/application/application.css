@@ -1,5 +1,8 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
+.backgroundWhite {-fx-background-color: #FFFFFF}
+.backgroundBlack {-fx-background-color: #000000}
+
 .button { -fx-background-color: #4499ee; -fx-text-fill: #FFFFFF; -fx-font-family: "Trebuchet MS"; -fx-font-size: 20  }
 .buttonNext { -fx-background-color: #55CC11; -fx-text-fill: #FFFFFF; -fx-font-family: "Trebuchet MS"; -fx-font-size: 20  }
 .buttonQuit { -fx-background-color: #880000; -fx-text-fill: #FFFFFF; -fx-font-family: "Trebuchet MS"; -fx-font-size: 20  }

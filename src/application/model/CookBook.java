@@ -64,7 +64,7 @@ public class CookBook {
 		return ret;
 	} // end of loadCookBook method
 	
-	public void writeCookBook(String filePath, CookBook cookBook) {
+	public static void writeCookBook(String filePath, CookBook cookBook) {
 		
 		try {
 			// Shift current file to bak and delete old bak

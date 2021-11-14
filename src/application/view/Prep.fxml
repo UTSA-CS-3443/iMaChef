@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.PrepController">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PrepController">
+   <children>
+      <Button fx:id="buttonCook" layoutX="351.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleCook" text="LET'S COOK!" />
+      <Button fx:id="buttonAuto" layoutX="582.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleAuto" styleClass="buttonNext" text="Auto" />
+      <Button fx:id="buttonQuit" layoutX="114.0" layoutY="383.0" mnemonicParsing="false" onAction="#handle" styleClass="buttonQuit" text="Quit" />
+   </children>
 </AnchorPane>

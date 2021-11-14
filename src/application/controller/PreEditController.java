@@ -40,10 +40,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 	private Label labelError;
 	
 	@FXML
-	private ListView listIng;
+	private ListView<String> listIng;
 	
 	@FXML
-	private ListView listTool;
+	private ListView<String> listTool;
 	
 	private int toolSelect;
 	
