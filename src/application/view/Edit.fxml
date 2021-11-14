@@ -1,10 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.EditController">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EditController">
+   <children>
+      <HBox layoutX="319.0" layoutY="286.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handle" styleClass="buttonQuit" text="BACK" />
+            <TableView fx:id="tableSteps" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+              </columns>
+            </TableView>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Step name: " />
+                        <TextField fx:id="tfName" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Description:" />
+                        <TextField fx:id="tfDesc" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Duration:" />
+                        <TextField fx:id="tfStepDuration" />
+                        <ChoiceBox fx:id="cbStepDuration" prefWidth="150.0" />
+                        <Label text="(default duration 1 minute)" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Choose media to display:" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Video Library:" />
+                        <ChoiceBox fx:id="cbLibrary" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Add my own local media file" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tfFilePath" />
+                        <ChoiceBox fx:id="cbMedia" prefWidth="150.0" />
+                        <Button fx:id="buttonBrowse" mnemonicParsing="false" onAction="#handleBrowse" text="Browse" />
+                     </children></HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="checkTimer" mnemonicParsing="false" text="Add timer after step" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Duration:" />
+                        <TextField fx:id="tfTimerDuration" />
+                        <ChoiceBox fx:id="cbTimerDuration" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="checkRepeat" mnemonicParsing="false" text="Repeat this step " />
+                        <TextField fx:id="tfRepeat" />
+                        <Label text="times" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#handleAdd" text="Add Step" />
+                        <Button fx:id="buttonRemove" mnemonicParsing="false" onAction="#handleRemove" styleClass="buttonQuit" text="Delete Step" />
+                        <Label fx:id="labelError" HBox.hgrow="ALWAYS" />
+                        <Region prefHeight="200.0" prefWidth="200.0" />
+                        <Button fx:id="buttonSave" mnemonicParsing="false" onAction="#handleSave" text="DONE" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>

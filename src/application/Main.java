@@ -23,6 +23,7 @@ public class Main extends Application {
 	public static CookBook cookBook;
 	public static Recipe currentRecipe;
 	public static final String DATA_FILE = "data/cookbook.dat";
+	public static boolean auto;
 	
 	
 	@Override

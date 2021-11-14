@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class Recipe {
@@ -80,7 +83,48 @@ public class Recipe {
 		return ret;
 	}
 	
+	public TableView<Step> getStepsAsTableView() {
+		TableView<Step> ret = new TableView<Step>();
+		//ObservableList<Step> stepList = FXCollections.observableArrayList();
+		
+		TableColumn<Step, String> column1 = new TableColumn<>("Step");
+	    column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+		// column1.setCellValueFactory(cellData -> cellData.getValue().getName());
+
+	    TableColumn<Step, String> column2 = new TableColumn<>("Time");
+	    column2.setCellValueFactory(new PropertyValueFactory<>("time"));
+	    // column2.setCellValueFactory(cellData -> cellData.getValue().getTime());
+
+	    ret.getColumns().add(column1);
+	    ret.getColumns().add(column2);
+
+	    for (Step temp : steps) {
+	    	ret.getItems().add(temp);
+	    }
+	 
+				
+		return ret;
+	}
 	
+	public void setStepsAsTableView(TableView<Step> tableSteps) {
+				
+		TableColumn<Step, String> column1 = new TableColumn<>("Step");
+	    column1.setCellValueFactory(new PropertyValueFactory<>("name"));
+		// column1.setCellValueFactory(cellData -> cellData.getValue().getName());
+
+	    TableColumn<Step, String> column2 = new TableColumn<>("Time");
+	    column2.setCellValueFactory(new PropertyValueFactory<>("time"));
+	    // column2.setCellValueFactory(cellData -> cellData.getValue().getTime());
+
+	    tableSteps.getColumns().add(column1);
+	    tableSteps.getColumns().add(column2);
+	    
+	    tableSteps.getItems().clear();
+	    for (Step temp : steps) {
+	    	tableSteps.getItems().add(temp);
+	    }
+
+	}
 	
 	
 	// Auto-generated getters and setters beyond this point

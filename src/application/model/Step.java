@@ -66,6 +66,11 @@ public class Step {
 		
 	}
 	
+	public String getTime() {
+		String ret = String.valueOf(getStepDuration()) + getStepDurationType();
+		return ret;
+	}
+	
 	// Auto-generated getters and setters beyond this point
 
 	/**
