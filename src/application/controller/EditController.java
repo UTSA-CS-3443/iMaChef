@@ -1,10 +1,12 @@
 package application.controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.CookBook;
 import application.model.Step;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,6 +24,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class EditController implements EventHandler<ActionEvent>, Initializable{
 
@@ -102,11 +106,32 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 		}
 	}
 	
+	
+	public void handleCBMedia() {
+		tfFilePath.setText("");
+	}
+	
 	/**
 	 * 
 	 * @param event clicking the Browse button
 	 */
 	public void handleBrowse(ActionEvent event) {
+		FileChooser fc= new FileChooser();
+		 fc.setTitle("Open Media File");
+		 if (cbMedia.getSelectionModel().getSelectedItem().equals("image")) {
+			 fc.getExtensionFilters().addAll(new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+		 } else {
+			 fc.getExtensionFilters().addAll(new ExtensionFilter("Video Files", "*.mp4", "*.avi"));
+		 }
+		 String currentDir = "media";
+		 File mediaDir = new File(currentDir);
+		 fc.setInitialDirectory(mediaDir);
+		 File selectedFile = fc.showOpenDialog(Main.stage);
+		 if (selectedFile != null) {
+		    tfFilePath.setText(selectedFile.getAbsolutePath());  
+		 }
+
+		
 		
 	}
 	
@@ -181,8 +206,6 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 				}
 				
 				
-// TODO: radio button
-				
 				mediaPath = tfFilePath.getText();
 				mediaType = cbMedia.getValue();
 				
@@ -237,7 +260,18 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 	 */
 	public void handleSave(ActionEvent event) {
 		// TODO: Commented out for now until it's ready for testing
-		// CookBook.writeCookBook(Main.DATA_FILE, Main.cookBook);
+		Main.cookBook.addRecipe(Main.currentRecipe);
+		CookBook.writeCookBook(Main.DATA_FILE, Main.cookBook);
+		
+		try {
+			
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 600));
+			Main.stage.show();
+	
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void refreshView() {

@@ -35,7 +35,7 @@ public class Recipe {
 	}
 	
 	public void addIngredient (String[] tokens) {
-		Ingredient temp = new Ingredient(tokens[0], Double.parseDouble(tokens[1]), tokens[3]);
+		Ingredient temp = new Ingredient(tokens[0], Double.parseDouble(tokens[1]), tokens[2]);
 		this.ingredients.add(temp);
 		
 	}

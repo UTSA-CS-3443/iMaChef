@@ -50,6 +50,8 @@ public class CookBook {
 					temp.addStep(tokens);
 				} else if (tokens.length == 0) {
 					continue;
+				} else {
+					System.out.println("Error: Unexpected number of tokens in data file.");
 				}
 							
 				
@@ -69,27 +71,39 @@ public class CookBook {
 		try {
 			// Shift current file to bak and delete old bak
 			File oldFile = new File(filePath);
+			System.out.printf("Opened %s\n", filePath);
 			File oldBak = new File(filePath + ".bak");
-			oldBak.delete();
+			if (oldBak.delete()) {
+				System.out.println("Deleted old bak file");
+			} else {
+				System.out.println("Failed to delete old bak file");
+			}
 			File newBak = new File(filePath + ".bak");
-			oldFile.renameTo(newBak);
-			
+			if (oldFile.renameTo(newBak)) {
+				System.out.println("Renamed previous dat to bak");
+			} else {
+				System.out.println("Failed to renamed previous dat to bak");
+			}
 			FileWriter outFile = new FileWriter( filePath );
 			PrintWriter outPrint = new PrintWriter(outFile);
 			
 			for (Recipe tempRec : cookBook.getRecipes()) {
-				outPrint.print(tempRec.getName());
+				outPrint.println(tempRec.getName());
+				System.out.println(tempRec.getName());
 				for (Ingredient ing : tempRec.getIngredients()) {
-					outPrint.print(ing.toData());
+					outPrint.println(ing.toData());
+					System.out.println(ing.toData());
 				}
 				for (String tool : tempRec.getTools()) {
-					outPrint.print("tool`" + tool);
+					outPrint.println("tool`" + tool);
+					System.out.println("tool`" + tool);
 				}
 				for (Step tempStep : tempRec.getSteps()) {
-					outPrint.print(tempStep.toData());
+					outPrint.println(tempStep.toData());
+					System.out.println(tempStep.toData());
 				}
 			}
-			
+			System.out.println("Write completed");
 			outPrint.close();
 			outFile.close();
 			

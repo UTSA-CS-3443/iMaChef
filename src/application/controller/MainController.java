@@ -19,7 +19,9 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		Main.cookBook = CookBook.loadCookBook(Main.DATA_FILE);
+		if (Main.cookBook == null) {
+			Main.cookBook = CookBook.loadCookBook(Main.DATA_FILE);
+		}
 		recipeSelected = -1; // safety value to make sure a recipe was selected
 		
 	}

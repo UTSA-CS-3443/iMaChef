@@ -67,6 +67,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 		
 		toolSelect = -1;
 		ingSelect = -1;
+		
+		textfieldIngName.setPromptText("Ingredient");
+		textfieldIngAmt.setPromptText("Amount");
+		textfieldTool.setPromptText("Tool");
 	}
 
 	@Override
@@ -153,7 +157,9 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 			this.listIng.getItems().clear();
 			listIng.getItems().addAll(Main.currentRecipe.getIngredientsAsList());
 			textfieldIngName.setText("");
+			textfieldIngName.setPromptText("Ingredient");
 			textfieldIngAmt.setText("");
+			textfieldIngAmt.setPromptText("Amount");
 		}
 						
 	}
@@ -191,6 +197,7 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 			this.listTool.getItems().clear();
 			this.listTool.getItems().addAll(Main.currentRecipe.getToolsAsList());
 			textfieldTool.setText("");
+			textfieldTool.setPromptText("Tool");
 		}
 	}
 	

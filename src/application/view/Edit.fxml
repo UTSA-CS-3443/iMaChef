@@ -43,19 +43,8 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="Video Library:" />
-                        <ChoiceBox fx:id="cbLibrary" prefWidth="150.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <RadioButton mnemonicParsing="false" text="Add my own local media file" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
                         <TextField fx:id="tfFilePath" />
-                        <ChoiceBox fx:id="cbMedia" prefWidth="150.0" />
+                        <ChoiceBox fx:id="cbMedia" onMouseClicked="#handleCBMedia" prefWidth="150.0" />
                         <Button fx:id="buttonBrowse" mnemonicParsing="false" onAction="#handleBrowse" text="Browse" />
                      </children></HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
