@@ -259,8 +259,14 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 	 * @param event clicking the Save button
 	 */
 	public void handleSave(ActionEvent event) {
-		// TODO: Commented out for now until it's ready for testing
-		Main.cookBook.addRecipe(Main.currentRecipe);
+		
+		if (Main.recipeSelected > -1 && Main.recipeSelected < Main.cookBook.getRecipes().size()) {
+			Main.cookBook.getRecipes().remove(Main.recipeSelected);
+			Main.cookBook.addRecipe(Main.recipeSelected, Main.currentRecipe);
+		} else {
+			Main.cookBook.addRecipe(Main.currentRecipe);
+		}
+		
 		CookBook.writeCookBook(Main.DATA_FILE, Main.cookBook);
 		
 		try {

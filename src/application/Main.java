@@ -22,6 +22,7 @@ public class Main extends Application {
 	public static Stage stage;
 	public static CookBook cookBook;
 	public static Recipe currentRecipe;
+	public static int recipeSelected;
 	public static final String DATA_FILE = "data/cookbook.dat";
 	public static boolean auto;
 	

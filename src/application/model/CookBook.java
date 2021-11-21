@@ -113,10 +113,14 @@ public class CookBook {
 		
 	}
 	
-	// Auto-generated getters and setters beyond this point
+	
 	
 	public void addRecipe( Recipe temp ) {
 		this.recipes.add(temp);
+	} // end of addRecipe method
+	
+	public void addRecipe( int index, Recipe temp) {
+		this.recipes.add(index, temp);
 	} // end of addRecipe method
 	
 	
@@ -124,7 +128,7 @@ public class CookBook {
 		return inString.replaceAll("`", "'");
 	}
 	
-
+	// Auto-generated getters and setters beyond this point
 	/**
 	 * @return the recipes
 	 */

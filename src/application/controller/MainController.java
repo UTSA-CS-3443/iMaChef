@@ -14,15 +14,14 @@ import javafx.scene.Scene;
 
 public class MainController implements EventHandler<ActionEvent>, Initializable{
 
-	private int recipeSelected;
-	
+		
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		if (Main.cookBook == null) {
 			Main.cookBook = CookBook.loadCookBook(Main.DATA_FILE);
 		}
-		recipeSelected = -1; // safety value to make sure a recipe was selected
+		Main.recipeSelected = -1; // safety value to make sure a recipe was selected
 		
 	}
 
@@ -68,7 +67,7 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 			
 			// Back-up code in case we enter Edit without a selected recipe. This will have the same outcome
 			// as hitting "Create new recipe"
-			if (recipeSelected == -1) {
+			if (Main.recipeSelected == -1) {
 				Main.currentRecipe = null;
 			}
 			
