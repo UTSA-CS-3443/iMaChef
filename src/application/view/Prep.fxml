@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PrepController">
    <children>
-      <Button fx:id="buttonCook" layoutX="351.0" layoutY="411.0" mnemonicParsing="false" onAction="#handleCook" text="LET'S COOK!" />
-      <Button fx:id="buttonAuto" layoutX="582.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleAuto" styleClass="buttonNext" text="Auto" />
-      <Button fx:id="buttonQuit" layoutX="114.0" layoutY="383.0" mnemonicParsing="false" onAction="#handle" styleClass="buttonQuit" text="Quit" />
+      <Button fx:id="buttonCook" layoutX="331.0" layoutY="518.0" mnemonicParsing="false" onAction="#handleCook" text="LET'S COOK!" />
+      <Button fx:id="buttonAuto" layoutX="600.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleAuto" styleClass="buttonNext" text="Auto" />
+      <Button fx:id="buttonQuit" layoutX="108.0" layoutY="450.0" mnemonicParsing="false" onAction="#handle" styleClass="buttonQuit" text="Quit" />
+      <TableView fx:id="tableView" layoutX="59.0" layoutY="145.0" prefHeight="253.0" prefWidth="361.0" style="-fx-border-color: black;" />
+      <Label layoutX="93.0" layoutY="46.0" prefHeight="86.0" prefWidth="650.0" text="Before we begin, make sure you have...">
+         <font>
+            <Font name="Arial" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="toolsLabel" alignment="TOP_LEFT" layoutX="469.0" layoutY="145.0" prefHeight="253.0" prefWidth="294.0" style="-fx-border-color: Black;" text="Label">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>
