@@ -36,7 +36,11 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 			// TODO: check the cookbook listView and set currentRecipe to the selected index
 			
 			
+			// TODO: Placeholder code to let Prep and Cook views have a selected recipe. Delete later
+			Main.recipeSelected = 0;
 			
+			
+			Main.currentRecipe = Main.cookBook.getRecipes().get(Main.recipeSelected);
 			
 			
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Prep.fxml"));

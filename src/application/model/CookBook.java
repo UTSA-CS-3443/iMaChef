@@ -39,6 +39,8 @@ public class CookBook {
 				if(tokens.length == 1) {
 					if (temp != null) {
 						ret.addRecipe(temp);
+						// TODO: Debugging code. Remove later
+						System.out.println(temp.getName() + " loaded into cookbook");
 					}
 					temp = new Recipe(tokens[0]);
 				} else if (tokens.length == 2) {
@@ -56,6 +58,13 @@ public class CookBook {
 							
 				
 			} // end while loop
+			
+			// Add the last recipe after no more lines to read
+			if (temp != null) {
+				ret.addRecipe(temp);
+				// TODO: Debugging code. Remove later
+				System.out.println(temp.getName() + " loaded into cookbook");
+			}
 			
 			sc.close();
 		} catch( IOException e ) {

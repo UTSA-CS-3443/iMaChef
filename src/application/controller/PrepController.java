@@ -42,7 +42,7 @@ public class PrepController implements EventHandler<ActionEvent>, Initializable{
 			ObservableList<Ingredient> data = FXCollections.observableArrayList(Main.currentRecipe.getIngredients());
 		
 			ingredient.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("name"));
-			amount.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("amountAndUnits"));
+			amount.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("amountAndUnit"));
 			checkBox.setCellValueFactory(new PropertyValueFactory<Ingredient, String>("checkBox"));
 			tableView.setItems(data);
 		}catch (Exception e) {
