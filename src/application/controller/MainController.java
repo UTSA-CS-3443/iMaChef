@@ -37,7 +37,7 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 			
 			
 			// TODO: Placeholder code to let Prep and Cook views have a selected recipe. Delete later
-			Main.recipeSelected = 0;
+			Main.recipeSelected = 1;
 			
 			
 			Main.currentRecipe = Main.cookBook.getRecipes().get(Main.recipeSelected);
