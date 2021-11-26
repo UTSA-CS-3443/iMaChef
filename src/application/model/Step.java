@@ -71,6 +71,34 @@ public class Step {
 		return ret;
 	}
 	
+	public int getDurationInMilli() {
+		double ret = timerDuration * 1000;
+		if (timerDurationType.equals("min")) {
+			ret = ret * 60;
+		} else if (timerDurationType.equals("hr")) {
+			ret = ret * 3600;
+		}
+		if (ret > Integer.MAX_VALUE) {
+			return Integer.MAX_VALUE - 1;
+		} else {		
+			return (int) ret;
+		}
+	}
+	
+	public int getTimerInMilli() {
+		double ret = timerDuration * 1000;
+		if (timerDurationType.equals("min")) {
+			ret = ret * 60;
+		} else if (timerDurationType.equals("hr")) {
+			ret = ret * 3600;
+		}
+		if (ret > Integer.MAX_VALUE) {
+			return Integer.MAX_VALUE - 1;
+		} else {		
+			return (int) ret;
+		}
+	}
+	
 	// Auto-generated getters and setters beyond this point
 
 	/**
