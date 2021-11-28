@@ -31,10 +31,20 @@ public class CookBook {
 			Scanner sc = new Scanner ( inFile );
 			Recipe temp = null;
 			
+			//TODO: comment out debug code
+			if (inFile.exists()) {
+				System.out.printf("File found at %s\n", filePath);
+			} else {
+				System.out.printf("File NOT FOUND at %s\n", filePath);
+			}
+			
 			while (sc.hasNextLine()) {
 				String inLine = sc.nextLine();
 				
 				String[] tokens = inLine.split("`");
+				
+				// TODO: comment out debug code
+				System.out.printf("Got %d tokens\n", tokens.length);
 				
 				if(tokens.length == 1) {
 					if (temp != null) {
