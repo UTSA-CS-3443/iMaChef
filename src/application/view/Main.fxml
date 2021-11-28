@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,7 +8,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
-      <Button fx:id="buttonEdit" layoutX="447.0" layoutY="243.0" mnemonicParsing="false" onAction="#handleEdit" text="EDIT" />
-      <Button fx:id="buttonPrep" layoutX="175.0" layoutY="234.0" mnemonicParsing="false" onAction="#handle" text="LET'S COOK!" />
+      <ImageView fitHeight="606.0" fitWidth="800.0">
+         <image>
+            <Image url="@../../../images/mainImage.JPG" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonEdit" layoutX="400.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleEdit" text="EDIT" />
+      <Button fx:id="buttonPrep" layoutX="49.0" layoutY="169.0" mnemonicParsing="false" onAction="#handle" text="LET'S COOK!" />
    </children>
 </AnchorPane>
