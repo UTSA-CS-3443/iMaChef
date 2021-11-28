@@ -72,10 +72,10 @@ public class Step {
 	}
 	
 	public int getDurationInMilli() {
-		double ret = timerDuration * 1000;
-		if (timerDurationType.equals("min")) {
+		double ret = stepDuration * 1000;
+		if (stepDurationType.equals("min")) {
 			ret = ret * 60;
-		} else if (timerDurationType.equals("hr")) {
+		} else if (stepDurationType.equals("hr")) {
 			ret = ret * 3600;
 		}
 		if (ret > Integer.MAX_VALUE) {

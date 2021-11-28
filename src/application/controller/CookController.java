@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import application.Main;
 import application.model.Step;
@@ -24,6 +25,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.WindowEvent;
 
 public class CookController implements EventHandler<ActionEvent>, Initializable {
 
@@ -37,11 +39,16 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	
 	private MediaPlayer mplayer;
 	
+	private Timer timer;
+	
 	@FXML
 	private Button buttonAuto;
 	
 	@FXML
 	private Pane mediaPane;
+	
+	@FXML
+	private Pane timerPane;
 	
 	@FXML
 	private TextFlow tfDesc;
@@ -59,6 +66,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		stepNumber = 0;
 		currentStep = Main.currentRecipe.getSteps().get(stepNumber);
 		repeatNumber = currentStep.getRepeat();
+		timer = new Timer();
 		if (Main.auto) {
 			startStepTimer();
 			Image auto = new Image("file:images/auto.png", 50, 50, true, false);
@@ -73,6 +81,12 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		tfDesc.getChildren().add(desc);
 		Main.currentRecipe.setStepsAsTableView(tableSteps);
 		resetMedia();
+		
+		Main.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+	          public void handle(WindowEvent we) {
+	        	  timer.cancel();
+	          }
+		}); 
 		
 	}
 
@@ -167,6 +181,16 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	private void startStepTimer() {
 		duration = currentStep.getDurationInMilli();
 		
+		timer.schedule(new TimerTask(){
+			
+			@Override
+			public void run() {
+				if (Main.auto) {
+					updateStep();
+				}
+			}
+			}, duration);
+		
 		
 	}
 	
@@ -174,6 +198,9 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		if (mplayer != null) {
 			mplayer.stop();
 		}
+		timer.cancel();
+		timer = new Timer();
+		
 		
 		if (repeatNumber > 0) {
 			repeatNumber--;
