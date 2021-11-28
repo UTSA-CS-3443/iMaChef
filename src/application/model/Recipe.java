@@ -115,9 +115,20 @@ public class Recipe {
 	    TableColumn<Step, String> column2 = new TableColumn<>("Time");
 	    column2.setCellValueFactory(new PropertyValueFactory<>("time"));
 	    // column2.setCellValueFactory(cellData -> cellData.getValue().getTime());
-
+	    
+	    
+	    column1.setMinWidth(150);
+	    column1.setMaxWidth(150);
+	    column1.setSortable(false);
+	    column2.setMinWidth(50);
+	    column2.setMaxWidth(50);
+	    column2.setSortable(false);
+		
+	    
+	    tableSteps.getColumns().clear();
 	    tableSteps.getColumns().add(column1);
 	    tableSteps.getColumns().add(column2);
+	    tableSteps.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	    
 	    tableSteps.getItems().clear();
 	    for (Step temp : steps) {

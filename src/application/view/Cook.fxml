@@ -7,21 +7,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CookController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CookController">
    <children>
-      <HBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="NEVER">
                <children>
                   <Button fx:id="buttonBack" mnemonicParsing="false" onAction="#handleBack">
                      <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="400.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/back.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Button fx:id="buttonQuit" mnemonicParsing="false" onAction="#handle">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -33,29 +34,31 @@
                   </Button>
                </children>
             </VBox>
-            <TableView prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="tableSteps" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="NEVER">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="200.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Pane fx:id="mediaPane" prefHeight="200.0" prefWidth="200.0" />
-                  <TextFlow fx:id="tfDesc" prefHeight="200.0" prefWidth="200.0" />
+                  <Pane fx:id="mediaPane" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS" />
+                  <Pane fx:id="timerPane" prefHeight="200.0" prefWidth="200.0" />
+                  <TextFlow fx:id="tfDesc" prefHeight="200.0" prefWidth="200.0" textAlignment="CENTER" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="NEVER">
                <children>
                   <Button fx:id="buttonNext" mnemonicParsing="false" onAction="#handleNext">
                      <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="400.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/next.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Button fx:id="buttonAuto" mnemonicParsing="false" onAction="#handleAuto" />
                </children>
             </VBox>

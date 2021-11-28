@@ -3,6 +3,7 @@ package application.controller;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 import application.Main;
 import application.model.Step;
@@ -44,6 +45,9 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	@FXML
 	private TextFlow tfDesc;
 	
+	@FXML
+	private TableView<Step> tableSteps;
+	
 	
 	/**
 	 * 
@@ -62,10 +66,12 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			Image noauto = new Image("file:images/noauto.png", 50, 50, true, false);
 			buttonAuto.setGraphic(new ImageView(noauto));
 		}
-		resetMedia();
+		
 		tfDesc.getChildren().clear();
 		Text desc = new Text(currentStep.getDesc());
 		tfDesc.getChildren().add(desc);
+		Main.currentRecipe.setStepsAsTableView(tableSteps);
+		resetMedia();
 		
 	}
 
@@ -75,7 +81,9 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	@Override
 	public void handle(ActionEvent event) {
 		try {
-						
+			if (mplayer != null) {
+				mplayer.stop();
+			}			
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 600));
 			Main.stage.show();
@@ -158,6 +166,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	private void startStepTimer() {
 		duration = currentStep.getDurationInMilli();
 		
+		
 	}
 	
 	private void updateStep() {
@@ -172,7 +181,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			stepNumber++;
 		}
 		
-		if (stepNumber > -1 && stepNumber < (Main.currentRecipe.getSteps().size() - 1) ) {
+		if (stepNumber > -1 && stepNumber < (Main.currentRecipe.getSteps().size()) ) {
 			currentStep = Main.currentRecipe.getSteps().get(stepNumber);
 			if (Main.auto) {
 				startStepTimer();
