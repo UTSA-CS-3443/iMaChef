@@ -21,7 +21,7 @@ public class Ingredient {
 	}
 
 	public String toData() {
-		String ret = this.name + "`" + String.valueOf(this.amount) + "`" + this.unit;
+		String ret = this.name + "@" + String.valueOf(this.amount) + "@" + this.unit;
 		return ret;
 		
 	}

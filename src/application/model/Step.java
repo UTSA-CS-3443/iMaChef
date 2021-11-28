@@ -41,14 +41,14 @@ public class Step {
 	
 	public String toData() {
 		String ret = "";
-		ret += this.name + "`";
-		ret += this.desc + "`";
-		ret += String.valueOf(this.stepDuration) + "`";
-		ret += this.stepDurationType + "`";
-		ret += this.mediaPath + "`";
-		ret += this.mediaType + "`";
-		ret += String.valueOf(this.timerDuration) + "`";
-		ret += this.timerDurationType + "`";
+		ret += this.name + "@";
+		ret += this.desc + "@";
+		ret += String.valueOf(this.stepDuration) + "@";
+		ret += this.stepDurationType + "@";
+		ret += this.mediaPath + "@";
+		ret += this.mediaType + "@";
+		ret += String.valueOf(this.timerDuration) + "@";
+		ret += this.timerDurationType + "@";
 		ret += String.valueOf(this.repeat);
 		
 		

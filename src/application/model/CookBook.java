@@ -41,7 +41,7 @@ public class CookBook {
 			while (sc.hasNextLine()) {
 				String inLine = sc.nextLine();
 				
-				String[] tokens = inLine.split("`");
+				String[] tokens = inLine.split("@");
 				
 				// TODO: comment out debug code
 				System.out.printf("Got %d tokens\n", tokens.length);
@@ -114,8 +114,8 @@ public class CookBook {
 					System.out.println(ing.toData());
 				}
 				for (String tool : tempRec.getTools()) {
-					outPrint.println("tool`" + tool);
-					System.out.println("tool`" + tool);
+					outPrint.println("tool@" + tool);
+					System.out.println("tool@" + tool);
 				}
 				for (Step tempStep : tempRec.getSteps()) {
 					outPrint.println(tempStep.toData());
@@ -144,7 +144,7 @@ public class CookBook {
 	
 	
 	public static String cleanString (String inString) {
-		return inString.replaceAll("`", "'");
+		return inString.replaceAll("@", "(a)");
 	}
 	
 	// Auto-generated getters and setters beyond this point
