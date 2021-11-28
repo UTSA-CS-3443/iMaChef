@@ -7,6 +7,7 @@ import java.util.Timer;
 
 import application.Main;
 import application.model.Step;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -179,29 +180,43 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			
 		} else {
 			stepNumber++;
-		}
-		
-		if (stepNumber > -1 && stepNumber < (Main.currentRecipe.getSteps().size()) ) {
-			currentStep = Main.currentRecipe.getSteps().get(stepNumber);
-			if (Main.auto) {
-				startStepTimer();
-			} 
-			resetMedia();
-			tfDesc.getChildren().clear();
-			Text desc = new Text(currentStep.getDesc());
-			tfDesc.getChildren().add(desc);
-		} else if (stepNumber >= Main.currentRecipe.getSteps().size()) {
-			try {
-				
-				Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
-				Main.stage.setScene(new Scene(root, 800, 600));
-				Main.stage.show();
-		
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
+			if (stepNumber > -1 && stepNumber < (Main.currentRecipe.getSteps().size()) ) {
+				currentStep = Main.currentRecipe.getSteps().get(stepNumber);
+				repeatNumber = currentStep.getRepeat();
+			} else if (stepNumber >= Main.currentRecipe.getSteps().size()) {
+				try {
+					
+					Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
+					Main.stage.setScene(new Scene(root, 800, 600));
+					Main.stage.show();
 			
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
 		}
-	}
+				
+		if (Main.auto) {
+			startStepTimer();
+		} 
+		
+		Platform.runLater(new Runnable() {
+	        @Override 
+	        public void run() {
+	        	resetMedia();
+	        }
+	    });
+		
+		
+		Platform.runLater(new Runnable() {
+	        @Override 
+	        public void run() {
+				tfDesc.getChildren().clear();
+				Text desc = new Text(currentStep.getDesc());
+				tfDesc.getChildren().add(desc);
+	        }
+		});
+			
+	} // end of updateStep
 
-}
+} // end of class
