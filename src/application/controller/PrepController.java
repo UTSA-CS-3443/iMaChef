@@ -18,12 +18,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+/**
+ * 
+ * @author dylan tran (lvw272)
+ * Class that implements the EventHandler called ActionEvent and creates a TableView for the ingredients and a Label for all the tools needed.
+ */
 public class PrepController implements EventHandler<ActionEvent>, Initializable{
 	@FXML
 	TableView tableView;
 	@FXML
 	Label toolsLabel;
+	
+	/**
+	 * @param URL and resources, ResourceBundle
+	 * Runs once the view is changed to Prep View.
+	 * Takes the data from Main and sets the table and label to the data
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -52,6 +62,7 @@ public class PrepController implements EventHandler<ActionEvent>, Initializable{
 
 	/**
 	 * @param event clicking the Quit button
+	 * Changes to Main view 
 	 */
 	@Override
 	public void handle(ActionEvent event) {
@@ -73,6 +84,7 @@ public class PrepController implements EventHandler<ActionEvent>, Initializable{
 	/**
 	 * 
 	 * @param event clicking the "Let's Cook" button
+	 * Changes to Cook View and sets auto in main to False
 	 */
 	public void handleCook(ActionEvent event) {
 		Main.auto = false;
@@ -92,6 +104,7 @@ public class PrepController implements EventHandler<ActionEvent>, Initializable{
 	/**
 	 * 
 	 * @param event clicking the Auto button
+	 * Changes to Cook View and sets auto in main to True
 	 */
 	public void handleAuto(ActionEvent event) {
 		Main.auto=true;
