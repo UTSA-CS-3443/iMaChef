@@ -30,9 +30,12 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	@FXML
     private ListView<String> recipeList;
 	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//rotate the main.fxml image
+		
+		//
 		RotateTransition rotate = new RotateTransition();
 	 	rotate.setNode(mainImage);
 	 	rotate.setDuration(Duration.millis(1000));
@@ -56,7 +59,9 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	 */
 	@Override
 	public void handle(ActionEvent event) {
-			
+	/**
+	 * 
+	 */
 		try {
 			// TODO: check the cookbook listView and set currentRecipe to the selected index
 			if(Main.recipeSelected != -1)
