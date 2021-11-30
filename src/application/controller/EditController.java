@@ -213,6 +213,7 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 				if (pathClean != -1 ) {
 					pathClean += 8;
 					mediaPath = mediaPath.substring(pathClean);
+					mediaPath = mediaPath.replace('\\', '/');
 					System.out.printf("Path after clean: %s\n", mediaPath);
 				}
 					
