@@ -72,6 +72,7 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 					Parent root = FXMLLoader.load(getClass().getResource("../view/Prep.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 600));
 					Main.stage.show();
+					System.out.println("");
 				}
 				 catch(Exception e) {
 					e.printStackTrace();
