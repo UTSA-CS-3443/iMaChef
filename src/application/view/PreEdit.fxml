@@ -50,11 +50,11 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <Label fx:id="labelError" prefWidth="600.0" textAlignment="CENTER" textFill="#d71e1e" />
+            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="buttonQuit" mnemonicParsing="false" onAction="#handle" styleClass="buttonQuit" text="QUIT" />
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES" />
-                  <Label fx:id="labelError" HBox.hgrow="ALWAYS" />
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES" />
                   <Button fx:id="buttonNext" mnemonicParsing="false" onAction="#handleNext" styleClass="buttonNext" text="NEXT" />
                </children>

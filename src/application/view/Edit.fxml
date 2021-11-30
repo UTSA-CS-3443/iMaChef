@@ -68,11 +68,11 @@
                         <Label text="times" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                  <Label fx:id="labelError" textFill="#cd1b1b" />
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                      <children>
                         <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#handleAdd" prefWidth="150.0" text="Add Step" textAlignment="CENTER" HBox.hgrow="NEVER" />
                         <Button fx:id="buttonRemove" mnemonicParsing="false" onAction="#handleRemove" prefWidth="150.0" styleClass="buttonQuit" text="Remove Step" textAlignment="CENTER" HBox.hgrow="NEVER" />
-                        <Label fx:id="labelError" HBox.hgrow="ALWAYS" />
                         <Region prefHeight="200.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
                         <Button fx:id="buttonSave" mnemonicParsing="false" onAction="#handleSave" prefWidth="150.0" text="DONE" HBox.hgrow="ALWAYS" />
                      </children>
