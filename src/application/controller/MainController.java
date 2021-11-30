@@ -5,6 +5,7 @@ import javafx.util.Duration;
 import java.util.ResourceBundle;
 import application.Main;
 import application.model.CookBook;
+import application.model.Recipe;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,7 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
@@ -24,9 +27,15 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	@FXML
 	private ImageView mainImage;
 	
+	@FXML
+    private ListView<String> recipeList;
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//rotate the main.fxml image
+		
+		//
 		RotateTransition rotate = new RotateTransition();
 	 	rotate.setNode(mainImage);
 	 	rotate.setDuration(Duration.millis(1000));
@@ -40,7 +49,8 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 		if (Main.cookBook == null) {
 			Main.cookBook = CookBook.loadCookBook(Main.DATA_FILE);
 		}
-		Main.recipeSelected = -1; // safety value to make sure a recipe was selected
+		Main.recipeSelected = -1;
+		recipeList.getItems().addAll(Main.cookBook.getRecipesAsList());
 		
 	}
 	
@@ -49,26 +59,25 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	 */
 	@Override
 	public void handle(ActionEvent event) {
-			
 		try {
 			// TODO: check the cookbook listView and set currentRecipe to the selected index
-			
-			
-			// TODO: Placeholder code to let Prep and Cook views have a selected recipe. Delete later
-			Main.recipeSelected = 2;
-			
-			
-			Main.currentRecipe = Main.cookBook.getRecipes().get(Main.recipeSelected);
-			
-			
-			Parent root = FXMLLoader.load(getClass().getResource("../view/Prep.fxml"));
-			Main.stage.setScene(new Scene(root, 800, 600));
-			Main.stage.show();
-	
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
+			if(Main.recipeSelected != -1)
+			{
+				try
+				{
+					Main.currentRecipe = Main.cookBook.getRecipes().get(Main.recipeSelected);	
+					Parent root = FXMLLoader.load(getClass().getResource("../view/Prep.fxml"));
+					Main.stage.setScene(new Scene(root, 800, 600));
+					Main.stage.show();
+					System.out.println("");
+				}
+				 catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 	}
 	
 	
@@ -79,14 +88,27 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	public void handleEdit(ActionEvent event) {
 		try {
 			
-			// TODO: check the cookbook listView and set currentRecipe to the selected index
+			if (Main.recipeSelected == -1) {
+				Main.currentRecipe = null;
+			}
+			else
+			{
+				Main.currentRecipe = Main.cookBook.getRecipes().get(Main.recipeSelected);
+			}
 			
-			
-			
-			
-			
-			
-			
+			Parent root = FXMLLoader.load(getClass().getResource("../view/PreEdit.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 600));
+			Main.stage.show();
+	
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public void handleAddRecipe(ActionEvent event) {
+		try {
 			// Back-up code in case we enter Edit without a selected recipe. This will have the same outcome
 			// as hitting "Create new recipe"
 			if (Main.recipeSelected == -1) {
@@ -102,6 +124,11 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 		}
 	}
 	
+	
+	public void handleList(MouseEvent t)
+	{
+		Main.recipeSelected = recipeList.getSelectionModel().getSelectedIndex();
+	}
 	
 
 }

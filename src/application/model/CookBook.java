@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  * 
  * @author Thomas Herron hgo525
@@ -131,6 +134,19 @@ public class CookBook {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	
+	public ObservableList<String> getRecipesAsList() {
+		ObservableList<String> ret = FXCollections.observableArrayList();
+		ret.removeAll(ret);
+		for (Recipe temp : recipes) {
+			String desc = temp.getName();
+			ret.add(desc);
+						
+		} // end of for loop
+				
+		return ret;
 	}
 	
 	
