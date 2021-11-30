@@ -171,6 +171,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			mplayer.stop();
 		}
 		mediaPane.getChildren().clear();
+		mplayer = null;
 		if (currentStep.getMediaType().equals("image")) {
 			Image stepImg = new Image("file:" + currentStep.getMediaPath());
 			ImageView stepIV = new ImageView(stepImg);
@@ -279,7 +280,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 			if (repeatNumber > 0) {
 				repeatNumber--;
-				postDuration = currentStep.getTimerDuration();
+				postDuration = currentStep.getTimerInMilli();
 				
 			} else {
 				stepNumber++;

@@ -207,6 +207,15 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 				
 				
 				mediaPath = tfFilePath.getText();
+				
+				System.out.printf("Path before clean: %s\n", mediaPath);
+				int pathClean = mediaPath.indexOf("iMaChef\\media");
+				if (pathClean != -1 ) {
+					pathClean += 8;
+					mediaPath = mediaPath.substring(pathClean);
+					System.out.printf("Path after clean: %s\n", mediaPath);
+				}
+					
 				mediaType = cbMedia.getValue();
 				
 				if (checkTimer.isSelected()) {
