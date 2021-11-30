@@ -81,7 +81,7 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 		Main.currentRecipe.setStepsAsTableView(tableSteps);
 		cbStepDuration.setValue("min");
 		Step.setDurationChoiceBox(cbStepDuration);
-		cbStepDuration.setValue("min");
+		cbTimerDuration.setValue("min");
 		Step.setDurationChoiceBox(cbTimerDuration);
 		cbMedia.setValue("image");
 		Step.setMediaChoiceBox(cbMedia);
@@ -167,7 +167,7 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 			ButtonType buttonTypeFour = new ButtonType("Replace");
 			ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 	
-			alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+			alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeFour, buttonTypeCancel);
 	
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.get() == buttonTypeOne){
@@ -225,11 +225,16 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 				if (replace) {
 					Main.currentRecipe.getSteps().remove(addIndex);
 				}
-				temp = new Step(name, desc, stepDuration, stepDurationType, mediaPath, mediaType, timerDuration, timerDurationType, repeat);
 				
-				Main.currentRecipe.getSteps().add(addIndex, temp);
-				refreshView();
-				stepSelect = -1;
+				if (isValid) {
+					temp = new Step(name, desc, stepDuration, stepDurationType, mediaPath, mediaType, timerDuration, timerDurationType, repeat);
+				
+					Main.currentRecipe.getSteps().add(addIndex, temp);
+					refreshView();
+					stepSelect = -1;
+				} else {
+					labelError.setText("Please check that all fields are filled correctly");
+				}
 			
 			} catch ( NumberFormatException e){
 				isValid = false;

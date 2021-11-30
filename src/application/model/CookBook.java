@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -63,7 +64,7 @@ public class CookBook {
 				} else if (tokens.length == 0) {
 					continue;
 				} else {
-					System.out.println("Error: Unexpected number of tokens in data file.");
+					System.out.printf("Error: Unexpected number of tokens ( %d ) in data file: %s\n", tokens.length, Arrays.toString(tokens));
 				}
 							
 				
