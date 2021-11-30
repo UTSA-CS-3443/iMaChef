@@ -15,7 +15,7 @@
             <Image url="@../../../images/mainImage.JPG" />
          </image>
       </ImageView>
-      <Button fx:id="buttonEdit" layoutX="610.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleEdit" styleClass="buttonNext" text="Edit Recipe" />
+      <Button fx:id="buttonEdit" layoutX="610.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleEdit" styleClass="buttonNext" text="Edit Recipe" />
       <Button fx:id="buttonPrep" layoutX="447.0" layoutY="498.0" mnemonicParsing="false" onAction="#handle" text="LET'S COOK!" />
       <Button fx:id="buttonAddRecipe" layoutX="35.0" layoutY="447.0" mnemonicParsing="false" onAction="#handleAddRecipe" prefHeight="67.0" prefWidth="262.0" text="Add a NEW Recipe">
          <graphic>
