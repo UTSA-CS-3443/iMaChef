@@ -37,6 +37,8 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	
 	private int duration;
 	
+	private int postDuration;
+	
 	private MediaPlayer mplayer;
 	
 	private Timer timer;
@@ -56,6 +58,12 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	@FXML
 	private TableView<Step> tableSteps;
 	
+	@FXML
+	private Label timeLeft;
+	
+	@FXML
+	private Label postLabel;
+	
 	
 	/**
 	 * 
@@ -66,15 +74,18 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		stepNumber = 0;
 		currentStep = Main.currentRecipe.getSteps().get(stepNumber);
 		repeatNumber = currentStep.getRepeat();
+		postDuration = currentStep.getTimerInMilli();
 		timer = new Timer();
 		if (Main.auto) {
 			startStepTimer();
 			Image auto = new Image("file:images/auto.png", 50, 50, true, false);
 			buttonAuto.setGraphic(new ImageView(auto));
 		} else {
+			timeLeft.setText("");
 			Image noauto = new Image("file:images/noauto.png", 50, 50, true, false);
 			buttonAuto.setGraphic(new ImageView(noauto));
 		}
+		postLabel.setText("");
 		
 		tfDesc.getChildren().clear();
 		Text desc = new Text(currentStep.getDesc());
@@ -181,6 +192,8 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	private void startStepTimer() {
 		duration = currentStep.getDurationInMilli();
 		
+		Platform.runLater(() -> postLabel.setText("Auto-Play will move to the next step in:"));
+		
 		timer.schedule(new TimerTask(){
 			
 			@Override
@@ -191,59 +204,123 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			}
 			}, duration);
 		
+		timer.scheduleAtFixedRate(new TimerTask() {
+	        public void run() {
+	            if(duration > 0)
+	            {
+	                int hours, minutes, seconds;
+	                hours = duration / (1000*60*60);
+	                minutes = (duration - (hours * (1000*60*60))) / (1000 * 60);
+	                seconds = (duration - (hours * (1000*60*60)) - (minutes * (1000*60)) ) / 1000;
+	                String timeOut = String.format("%d:%02d:%02d", hours, minutes, seconds);
+	            	Platform.runLater(() -> timeLeft.setText(timeOut));
+	                
+	                duration -= 1000;
+	            }
+	            else
+	                
+	            	Platform.runLater(() -> timeLeft.setText("00:00:00"));
+		        }
+		}, 1000,1000);
 		
-	}
+		
+	} // end of startStepTimer
+	
+	private void startPostTimer() {
+		
+		Platform.runLater(() -> postLabel.setText("There's a timer before you start the next step. Relax for a bit!"));
+		
+		timer.schedule(new TimerTask(){
+			
+			@Override
+			public void run() {
+				if (Main.auto) {
+					
+					updateStep();
+				}
+			}
+		}, postDuration);
+		
+		timer.scheduleAtFixedRate(new TimerTask() {
+	        public void run() {
+	            if(postDuration > 0)
+	            {
+	                int hours, minutes, seconds;
+	                hours = postDuration / (1000*60*60);
+	                minutes = (postDuration - (hours * (1000*60*60))) / (1000 * 60);
+	                seconds = (postDuration - (hours * (1000*60*60)) - (minutes * (1000*60)) ) / 1000;
+	                String timeOut = String.format("%d:%02d:%02d", hours, minutes, seconds);
+	            	Platform.runLater(() -> timeLeft.setText(timeOut));
+	                
+	                postDuration -= 1000;
+	            }
+	            else
+	                
+	            	Platform.runLater(() -> timeLeft.setText("00:00:00"));
+		        }
+		}, 1000,1000);
+		
+		
+	} // end of startPostTimer
 	
 	private void updateStep() {
 		if (mplayer != null) {
 			mplayer.stop();
 		}
+		Platform.runLater(() -> timeLeft.setText(""));
+		Platform.runLater(() -> postLabel.setText(""));
 		timer.cancel();
 		timer = new Timer();
 		
+		if (postDuration > 0) {
+			startPostTimer();
+			
+		} else {		
 		
-		if (repeatNumber > 0) {
-			repeatNumber--;
-			
-		} else {
-			stepNumber++;
-			if (stepNumber > -1 && stepNumber < (Main.currentRecipe.getSteps().size()) ) {
-				currentStep = Main.currentRecipe.getSteps().get(stepNumber);
-				repeatNumber = currentStep.getRepeat();
-			} else if (stepNumber >= Main.currentRecipe.getSteps().size()) {
-				try {
-					
-					Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
-					Main.stage.setScene(new Scene(root, 800, 600));
-					Main.stage.show();
-			
-				} catch(Exception e) {
-					e.printStackTrace();
+			if (repeatNumber > 0) {
+				repeatNumber--;
+				postDuration = currentStep.getTimerDuration();
+				
+			} else {
+				stepNumber++;
+				if (stepNumber > -1 && stepNumber < (Main.currentRecipe.getSteps().size()) ) {
+					currentStep = Main.currentRecipe.getSteps().get(stepNumber);
+					repeatNumber = currentStep.getRepeat();
+					postDuration = currentStep.getTimerInMilli();
+				} else if (stepNumber >= Main.currentRecipe.getSteps().size()) {
+					try {
+						
+						Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
+						Main.stage.setScene(new Scene(root, 800, 600));
+						Main.stage.show();
+				
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
-		}
-				
-		if (Main.auto) {
-			startStepTimer();
-		} 
-		
-		Platform.runLater(new Runnable() {
-	        @Override 
-	        public void run() {
-	        	resetMedia();
-	        }
-	    });
-		
-		
-		Platform.runLater(new Runnable() {
-	        @Override 
-	        public void run() {
-				tfDesc.getChildren().clear();
-				Text desc = new Text(currentStep.getDesc());
-				tfDesc.getChildren().add(desc);
-	        }
-		});
+					
+			if (Main.auto) {
+				startStepTimer();
+			} 
 			
+			Platform.runLater(new Runnable() {
+		        @Override 
+		        public void run() {
+		        	resetMedia();
+		        }
+		    });
+			
+			
+			Platform.runLater(new Runnable() {
+		        @Override 
+		        public void run() {
+					tfDesc.getChildren().clear();
+					Text desc = new Text(currentStep.getDesc());
+					tfDesc.getChildren().add(desc);
+		        }
+			});
+		} // end of else postDuration	
 	} // end of updateStep
 
 } // end of class

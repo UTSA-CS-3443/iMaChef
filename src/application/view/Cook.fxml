@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -40,11 +41,25 @@
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <VBox prefHeight="200.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="200.0" prefWidth="400.0" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>
                   <Pane fx:id="mediaPane" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS" />
-                  <Pane fx:id="timerPane" prefHeight="200.0" prefWidth="200.0" />
-                  <TextFlow fx:id="tfDesc" prefHeight="200.0" prefWidth="350.0" textAlignment="CENTER" />
+                  <Pane fx:id="timerPane" prefHeight="150.0" prefWidth="400.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="0.0" prefWidth="400.0">
+                           <children>
+                              <Label fx:id="postLabel">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="timeLeft" textAlignment="CENTER" textFill="#1cd72b">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font></Label>
+                           </children>
+                        </VBox>
+                     </children></Pane>
+                  <TextFlow fx:id="tfDesc" prefHeight="150.0" prefWidth="400.0" textAlignment="CENTER" VBox.vgrow="NEVER" />
                </children>
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="NEVER">
