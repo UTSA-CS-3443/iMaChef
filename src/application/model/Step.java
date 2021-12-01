@@ -3,18 +3,36 @@ package application.model;
 import javafx.collections.FXCollections;
 import javafx.scene.control.ChoiceBox;
 
+/**
+ * Step class stores information on a Step of a Recipe. It also includes methods for initializing
+ * JavaFX GUI elements related to Steps
+ * @author Thomas Herron hgo525
+ *
+ */
 public class Step {
 
 	private String name;
 	private String desc;
 	private int stepDuration;
-	private String stepDurationType; // TODO: change durType to enum ?
+	private String stepDurationType; 
 	private String mediaPath;
-	private String mediaType; // TODO: change medaiType to enum ?
+	private String mediaType; 
 	private int timerDuration;
 	private String timerDurationType;
 	private int repeat;
 	
+	/**
+	 * Step constructor method
+	 * @param name of the Step
+	 * @param desc Description of Step instructions as a String
+	 * @param stepDuration duration the step should take to complete as an int
+	 * @param stepDurationType unit of time for the stepDuration int, as a String
+	 * @param mediaPath String with the filePath to the media object accompanying the step
+	 * @param mediaType type of media found at the mediaPath address as a String (image or video)
+	 * @param timerDuration duration of a post-step timer as an int
+	 * @param timerDurationType unit of time for the timerDuration int, as a String
+	 * @param repeat the number of times to repeat the step, as an int
+	 */
 	public Step(String name, String desc, int stepDuration, String stepDurationType, String mediaPath, String mediaType, int timerDuration, String timerDurationType, int repeat) {
 		this.name = name;
 		this.desc = desc;
@@ -29,6 +47,11 @@ public class Step {
 		
 	} // end of constructor method
 	
+	/**
+	 * parseStep method converts an array of Strings taken from a CookBook .dat file and converts them into a Step object
+	 * @param tokens a String array from a CookBook .dat file
+	 * @return the Step object described in the provided String array
+	 */
 	public static Step parseStep(String[] tokens) {
 		Step ret;
 		if (tokens.length != 9) {
@@ -39,6 +62,10 @@ public class Step {
 		return ret;
 	} // end of parseStep method
 	
+	/**
+	 * toData method returns a String representation of the Step, formatted for a CookBook .dat file
+	 * @return the formatted String for storing the Step in a CookBook .dat file
+	 */
 	public String toData() {
 		String ret = "";
 		ret += this.name + "@";
@@ -55,22 +82,38 @@ public class Step {
 		return ret;
 	}
 	
+	/**
+	 * setDurationChoiceBox method initializes a ChoiceBox with the String options using in Duration Strings
+	 * @param cb the ChoiceBox to fill
+	 */
 	public static void setDurationChoiceBox(ChoiceBox<String> cb) {
 		cb.setItems(FXCollections.observableArrayList("sec", "min", "hr"));
 		
 		
 	}
 	
+	/**
+	 * setMediaChoiceBox method initializes a ChoiceBox with the String options using in mediaType Strings
+	 * @param cb the ChoiceBox to fill
+	 */
 	public static void setMediaChoiceBox(ChoiceBox<String> cb) {
 		cb.setItems(FXCollections.observableArrayList("image", "video"));
 		
 	}
 	
+	/**
+	 * getTime method returns a String representation of the Step duration
+	 * @return String of the Step duration
+	 */
 	public String getTime() {
 		String ret = String.valueOf(getStepDuration()) + getStepDurationType();
 		return ret;
 	}
 	
+	/**
+	 * getDurationInMilli returns the Step's duration in milliseconds
+	 * @return stepDuration in milliseconds
+	 */
 	public int getDurationInMilli() {
 		double ret = stepDuration * 1000;
 		if (stepDurationType.equals("min")) {
@@ -85,6 +128,10 @@ public class Step {
 		}
 	}
 	
+	/**
+	 * getTimerInMilli method returns the Step's post-Step timer duration in milliseconds
+	 * @return the timerDuration in milliseconds
+	 */
 	public int getTimerInMilli() {
 		double ret = timerDuration * 1000;
 		if (timerDurationType.equals("min")) {
@@ -102,13 +149,15 @@ public class Step {
 	// Auto-generated getters and setters beyond this point
 
 	/**
-	 * @return the name
+	 * getter method that returns the requested variable
+	 * @return the name of the Step
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
+	 * setter method that sets the Step variable to the given parameter
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -116,76 +165,87 @@ public class Step {
 	}
 
 	/**
-	 * @return the desc
+	 * getter method that returns the requested variable
+	 * @return the description of the Step
 	 */
 	public String getDesc() {
 		return desc;
 	}
 
 	/**
-	 * @param desc the desc to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param desc the Step description or instructions to set
 	 */
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
 
 	/**
-	 * @return the stepDuration
+	 * getter method that returns the requested variable
+	 * @return the stepDuration as an int
 	 */
 	public int getStepDuration() {
 		return stepDuration;
 	}
 
 	/**
-	 * @param stepDuration the stepDuration to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param stepDuration the stepDuration to set as an int
 	 */
 	public void setStepDuration(int stepDuration) {
 		this.stepDuration = stepDuration;
 	}
 
 	/**
-	 * @return the stepDurationType
+	 * getter method that returns the requested variable
+	 * @return the stepDurationType as a String
 	 */
 	public String getStepDurationType() {
 		return stepDurationType;
 	}
 
 	/**
-	 * @param stepDurationType the stepDurationType to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param stepDurationType the stepDurationType to set as a String
 	 */
 	public void setStepDurationType(String stepDurationType) {
 		this.stepDurationType = stepDurationType;
 	}
 
 	/**
-	 * @return the mediaPath
+	 * getter method that returns the requested variable
+	 * @return the mediaPath as a String
 	 */
 	public String getMediaPath() {
 		return mediaPath;
 	}
 
 	/**
-	 * @param mediaPath the mediaPath to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param mediaPath the mediaPath to set as a String
 	 */
 	public void setMediaPath(String mediaPath) {
 		this.mediaPath = mediaPath;
 	}
 
 	/**
-	 * @return the mediaType
+	 * getter method that returns the requested variable
+	 * @return the mediaType as a String
 	 */
 	public String getMediaType() {
 		return mediaType;
 	}
 
 	/**
-	 * @param mediaType the mediaType to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param mediaType the mediaType to set as a String
 	 */
 	public void setMediaType(String mediaType) {
 		this.mediaType = mediaType;
 	}
 
 	/**
+	 * getter method that returns the requested variable
 	 * @return the timerDuration
 	 */
 	public int getTimerDuration() {
@@ -193,35 +253,40 @@ public class Step {
 	}
 
 	/**
-	 * @param timerDuration the timerDuration to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param timerDuration the timerDuration to set as an int
 	 */
 	public void setTimerDuration(int timerDuration) {
 		this.timerDuration = timerDuration;
 	}
 
 	/**
-	 * @return the timerDurationType
+	 * getter method that returns the requested variable
+	 * @return the timerDurationType as a String
 	 */
 	public String getTimerDurationType() {
 		return timerDurationType;
 	}
 
 	/**
-	 * @param timerDurationType the timerDurationType to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param timerDurationType the timerDurationType to set as a String
 	 */
 	public void setTimerDurationType(String timerDurationType) {
 		this.timerDurationType = timerDurationType;
 	}
 
 	/**
-	 * @return the repeat
+	 * getter method that returns the requested variable
+	 * @return the repeat count for the Step
 	 */
 	public int getRepeat() {
 		return repeat;
 	}
 
 	/**
-	 * @param repeat the repeat to set
+	 * setter method that sets the Step variable to the given parameter
+	 * @param repeat the repeat count to set
 	 */
 	public void setRepeat(int repeat) {
 		this.repeat = repeat;

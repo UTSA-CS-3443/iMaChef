@@ -12,21 +12,31 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * 
+ * CookBook class handles storing, loading, saving, and backing-up CookBooks and data files storing cookbooks.
+ * It includes methods for sanitizing strings prior to saving in CookBook .dat files and methods for returning 
+ * objects needed to displaying cookbook information in JavaFX GUIs.
  * @author Thomas Herron hgo525
- *
+ * @author Marcus
  */
 
 public class CookBook {
 
 	private ArrayList<Recipe> recipes;
 	
-	
+	/**
+	 * CookBook empty constructor
+	 */
 	public CookBook() {
 		this.recipes = new ArrayList<Recipe>();
 		
 	} // end of constructor method
 	
+	/**
+	 * loadCookBook method reads a cookbook .dat file and returns a cookbook loaded with the formatted recipes
+	 * in the file
+	 * @param filePath path to the cookbook .dat file as a String
+	 * @return a cookbook object containing the file's recipes
+	 */
 	public static CookBook loadCookBook ( String filePath ) {
 		CookBook ret = new CookBook();
 		
@@ -89,6 +99,12 @@ public class CookBook {
 		return ret;
 	} // end of loadCookBook method
 	
+	/**
+	 * writeCookBook method saves the cookbook as the given file path string as a .bak file (replacing an existing
+	 * .bak file if there is one) and saves the current CookBook in app memory as a .dat file at that location.
+	 * @param filePath the file path to write the cookbook .dat file to
+	 * @param cookBook the cookbook to save
+	 */
 	public static void writeCookBook(String filePath, CookBook cookBook) {
 		
 		try {
@@ -136,7 +152,10 @@ public class CookBook {
 		
 	}
 	
-	
+	/**
+	 * getRecipesAsList method returns an observable list containing the cookbook's recipes
+	 * @return an ObservableList of recipe names
+	 */
 	public ObservableList<String> getRecipesAsList() {
 		ObservableList<String> ret = FXCollections.observableArrayList();
 		ret.removeAll(ret);
@@ -150,30 +169,44 @@ public class CookBook {
 	}
 	
 	
-	
+	/**
+	 * addRecipe method adds a recipe object to the cookbook's recipe ArrayList
+	 * @param temp the recipe to add
+	 */
 	public void addRecipe( Recipe temp ) {
 		this.recipes.add(temp);
 	} // end of addRecipe method
 	
+	/**
+	 * addReipe overloaded method adds the recipe to the cookbook's recipe ArrayList at the given index
+	 * @param index the index to insert the recipe at
+	 * @param temp the recipe to add
+	 */
 	public void addRecipe( int index, Recipe temp) {
 		this.recipes.add(index, temp);
 	} // end of addRecipe method
 	
-	
+	/**
+	 * cleanString method sanitizes a string to remove the character used as a delimiter in cookbook .dat files
+	 * @param inString the string to be sanitized
+	 * @return the sanitized string
+	 */
 	public static String cleanString (String inString) {
 		return inString.replaceAll("@", "(a)");
 	}
 	
 	// Auto-generated getters and setters beyond this point
 	/**
-	 * @return the recipes
+	 * getRecipes is the getter method that returns the ArrayList of recipes
+	 * @return the recipes ArrayList of recipes
 	 */
 	public ArrayList<Recipe> getRecipes() {
 		return recipes;
 	}
 
 	/**
-	 * @param recipes the recipes to set
+	 * setRecipes is the getter method that sets the ArrayList of recipes
+	 * @param recipes the recipes ArrayList of recipes to set
 	 */
 	public void setRecipes(ArrayList<Recipe> recipes) {
 		this.recipes = recipes;
