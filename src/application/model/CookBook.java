@@ -45,26 +45,28 @@ public class CookBook {
 			Scanner sc = new Scanner ( inFile );
 			Recipe temp = null;
 			
-			//TODO: comment out debug code
+			//Debugging code
+			/*
 			if (inFile.exists()) {
 				System.out.printf("File found at %s\n", filePath);
 			} else {
 				System.out.printf("File NOT FOUND at %s\n", filePath);
 			}
+			*/
 			
 			while (sc.hasNextLine()) {
 				String inLine = sc.nextLine();
 				
 				String[] tokens = inLine.split("@");
 				
-				// TODO: comment out debug code
-				System.out.printf("Got %d tokens\n", tokens.length);
+				// Debugging code
+				// System.out.printf("Got %d tokens\n", tokens.length);
 				
 				if(tokens.length == 1) {
 					if (temp != null) {
 						ret.addRecipe(temp);
-						// TODO: Debugging code. Remove later
-						System.out.println(temp.getName() + " loaded into cookbook");
+						// Debugging code.
+						// System.out.println(temp.getName() + " loaded into cookbook");
 					}
 					temp = new Recipe(tokens[0]);
 				} else if (tokens.length == 2) {
@@ -86,8 +88,8 @@ public class CookBook {
 			// Add the last recipe after no more lines to read
 			if (temp != null) {
 				ret.addRecipe(temp);
-				// TODO: Debugging code. Remove later
-				System.out.println(temp.getName() + " loaded into cookbook");
+				// Debugging code.
+				// System.out.println(temp.getName() + " loaded into cookbook");
 			}
 			
 			sc.close();
