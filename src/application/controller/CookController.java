@@ -43,6 +43,10 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	
 	private Timer timer;
 	
+	private boolean exited;
+	
+	private boolean skipthrough;
+	
 	@FXML
 	private Button buttonAuto;
 	
@@ -76,6 +80,8 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		repeatNumber = currentStep.getRepeat();
 		postDuration = currentStep.getTimerInMilli();
 		timer = new Timer();
+		exited = false;
+		skipthrough = false;
 		if (Main.auto) {
 			startStepTimer();
 			Image auto = new Image("file:images/auto.png", 50, 50, true, false);
@@ -107,9 +113,10 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	@Override
 	public void handle(ActionEvent event) {
 		try {
-			if (mplayer != null) {
+			if (mplayer != null && mplayer.getStatus() != MediaPlayer.Status.STOPPED) {
 				mplayer.stop();
 			}			
+			exited = true;
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 600));
 			Main.stage.show();
@@ -129,11 +136,11 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		}
 		
 		if (stepNumber < -1) {
-			if (mplayer != null) {
+			if (mplayer != null && mplayer.getStatus() != MediaPlayer.Status.STOPPED) {
 				mplayer.stop();
 			}
 			try {
-				
+				exited = true;
 				Parent root = FXMLLoader.load(getClass().getResource("../view/Prep.fxml"));
 				Main.stage.setScene(new Scene(root, 800, 600));
 				Main.stage.show();
@@ -167,25 +174,28 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	}
 	
 	private void resetMedia() {
-		if (mplayer != null) {
+		if (mplayer != null && mplayer.getStatus() != MediaPlayer.Status.STOPPED) {
 			mplayer.stop();
 		}
-		mediaPane.getChildren().clear();
-		mplayer = null;
-		if (currentStep.getMediaType().equals("image")) {
-			Image stepImg = new Image("file:" + currentStep.getMediaPath());
-			ImageView stepIV = new ImageView(stepImg);
-			stepIV.fitHeightProperty().bind(mediaPane.heightProperty());
-			stepIV.fitWidthProperty().bind(mediaPane.widthProperty());
-			mediaPane.getChildren().add(stepIV);
-		} else if (currentStep.getMediaType().equals("video")) {
-			Media vid = new Media(new File(currentStep.getMediaPath()).toURI().toString());
-			mplayer = new MediaPlayer(vid);
-			mplayer.setAutoPlay(true);
-			MediaView mview = new MediaView(mplayer);
-			mview.fitHeightProperty().bind(mediaPane.heightProperty());
-			mview.fitWidthProperty().bind(mediaPane.widthProperty());
-			mediaPane.getChildren().add(mview);
+		
+		if ( ! exited) {
+			mediaPane.getChildren().clear();
+			mplayer = null;
+			if (currentStep.getMediaType().equals("image")) {
+				Image stepImg = new Image("file:" + currentStep.getMediaPath());
+				ImageView stepIV = new ImageView(stepImg);
+				stepIV.fitHeightProperty().bind(mediaPane.heightProperty());
+				stepIV.fitWidthProperty().bind(mediaPane.widthProperty());
+				mediaPane.getChildren().add(stepIV);
+			} else if (currentStep.getMediaType().equals("video")) {
+				Media vid = new Media(new File(currentStep.getMediaPath()).toURI().toString());
+				mplayer = new MediaPlayer(vid);
+				mplayer.setAutoPlay(true);
+				MediaView mview = new MediaView(mplayer);
+				mview.fitHeightProperty().bind(mediaPane.heightProperty());
+				mview.fitWidthProperty().bind(mediaPane.widthProperty());
+				mediaPane.getChildren().add(mview);
+			}
 		}
 		
 	}
@@ -200,7 +210,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			@Override
 			public void run() {
 				if (Main.auto) {
-					updateStep();
+					Platform.runLater(() -> updateStep());
 				}
 			}
 			}, duration);
@@ -230,7 +240,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	private void startPostTimer() {
 		
 		Platform.runLater(() -> postLabel.setText("There's a timer before you start the next step. Relax for a bit!"));
-		
+		skipthrough = true;
 		timer.schedule(new TimerTask(){
 			
 			@Override
@@ -265,7 +275,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	} // end of startPostTimer
 	
 	private void updateStep() {
-		if (mplayer != null) {
+		if (mplayer != null && mplayer.getStatus() != MediaPlayer.Status.STOPPED) {
 			mplayer.stop();
 		}
 		Platform.runLater(() -> timeLeft.setText(""));
@@ -273,7 +283,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		timer.cancel();
 		timer = new Timer();
 		
-		if (postDuration > 0) {
+		if (postDuration > 0 && skipthrough == false) {
 			startPostTimer();
 			
 		} else {		
@@ -281,6 +291,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 			if (repeatNumber > 0) {
 				repeatNumber--;
 				postDuration = currentStep.getTimerInMilli();
+				skipthrough = false;
 				
 			} else {
 				stepNumber++;
@@ -288,9 +299,11 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 					currentStep = Main.currentRecipe.getSteps().get(stepNumber);
 					repeatNumber = currentStep.getRepeat();
 					postDuration = currentStep.getTimerInMilli();
+					skipthrough = false;
 				} else if (stepNumber >= Main.currentRecipe.getSteps().size()) {
 					try {
-						
+						Main.auto = false;
+						exited = true;
 						Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
 						Main.stage.setScene(new Scene(root, 800, 600));
 						Main.stage.show();
