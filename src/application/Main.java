@@ -8,7 +8,8 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-/**
+/** Main driver for iMaChef app. Launches the app GUI and stores static variables for the user's current
+ * session with the app.
  * 
  * @author Thomas Herron hgo525
  * @author 

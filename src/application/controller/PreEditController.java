@@ -19,6 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+/**
+ * PreEditController class handles interactions with the PreEdit view
+ * @author Thomas Herron hgo525
+ *
+ */
 public class PreEditController implements EventHandler<ActionEvent>, Initializable{
 
 	@FXML
@@ -49,7 +54,9 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 	
 	private int ingSelect;
 	
-	
+	/**
+	 * initialize method handle pre-launch view operations.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -73,6 +80,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 		textfieldTool.setPromptText("Tool");
 	}
 
+	/**
+	 * handle method handles clicking the QUIT button
+	 * @param event clicking the QUIT button
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		
@@ -88,6 +99,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 		
 	}
 	
+	/**
+	 * handleNext handles clicking the NEXT button
+	 * @param event clicking the NEXT button
+	 */
 	public void handleNext(ActionEvent event) {
 		try {
 			boolean isValid = true;
@@ -113,6 +128,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 		
 	}
 
+	/**
+	 * handleIngAdd method handles clicking the ADD button for the ingredient list
+	 * @param event clicking the ADD button for the ingredient list
+	 */
 	public void handleIngAdd(ActionEvent event) {
 		// TODO Auto-generated method stub
 		boolean isValid = true;
@@ -164,6 +183,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 						
 	}
 	
+	/**
+	 * handleIngDelete method handles clicking the DELETE button for the ingredient list
+	 * @param event clicking the DELETE button for the ingredient list
+	 */
 	public void handleIngDelete(ActionEvent event) {
 		// TODO Auto-generated method stub
 		ingSelect = listIng.getSelectionModel().getSelectedIndex();
@@ -176,6 +199,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 		
 	}
 	
+	/**
+	 * handleToolAdd method handles clicking the ADD button for the tool list
+	 * @param event clicking the ADD button for the tool list
+	 */
 	public void handleToolAdd(ActionEvent event) {
 		// TODO Auto-generated method stub
 		boolean isValid = true;
@@ -201,7 +228,10 @@ public class PreEditController implements EventHandler<ActionEvent>, Initializab
 		}
 	}
 	
-		
+	/**
+	 * handleToolDelete method handles clicking the DELETE button for the tool list
+	 * @param event clicking the DELETE button for the tool list
+	 */
 	public void handleToolDelete(ActionEvent event) {
 		
 		toolSelect = listTool.getSelectionModel().getSelectedIndex();

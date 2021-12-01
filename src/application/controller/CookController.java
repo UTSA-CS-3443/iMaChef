@@ -27,6 +27,12 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.WindowEvent;
 
+/**
+ * CookController class handles interaction with the Cook view. It manages media display, auto-play timers
+ * and post-step timers.
+ * @author Thomas Herron hgo525
+ *
+ */
 public class CookController implements EventHandler<ActionEvent>, Initializable {
 
 	private Step currentStep;
@@ -70,7 +76,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 	
 	
 	/**
-	 * 
+	 * initialize method handle pre-launch view operations.
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -109,6 +115,7 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 
 	/**
 	 *  handle method handles clicking the QUIT button
+	 *  @param event clicking the QUIT button
 	 */
 	@Override
 	public void handle(ActionEvent event) {
@@ -127,6 +134,11 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 	}
 	
+	/**
+	 * handleBack method handles clicking the BACK button. It returns the user to the Prep view
+	 * if they attempt to go back from the first step.
+	 * @param event clicking the BACK button
+	 */
 	public void handleBack(ActionEvent event) {
 		
 		if (repeatNumber < currentStep.getRepeat()) {
@@ -154,11 +166,20 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 	}
 	
+	/**
+	 * handleNext method handles clicking the NEXT button
+	 * @param event clicking the NEXT button
+	 */
 	public void handleNext(ActionEvent event) {
 		updateStep();
 		
 	}
 	
+	
+	/**
+	 * handleAuto button handles clicking the Auto button by toggling auto-play mode on and off
+	 * @param event clicking the AUTO button
+	 */
 	public void handleAuto(ActionEvent event) {
 		if (Main.auto) {
 			Main.auto = false;
@@ -173,6 +194,10 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 	}
 	
+	/**
+	 * resetMedia method handles resetting the previous media being displayed and loading the new
+	 * media for the current step.
+	 */
 	private void resetMedia() {
 		if (mplayer != null && mplayer.getStatus() != MediaPlayer.Status.STOPPED) {
 			mplayer.stop();
@@ -200,6 +225,11 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 	}
 	
+	/**
+	 * startStepTimer method runs the auto-play timer for the current step and advances to the
+	 * next step if auto-play hasn't been disable at the time the timer completes. It also manages
+	 * the countdown timer display.
+	 */
 	private void startStepTimer() {
 		duration = currentStep.getDurationInMilli();
 		
@@ -237,6 +267,10 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 	} // end of startStepTimer
 	
+	/**
+	 * the startPostTimer method handles post-step delay timers and manages the countdown timer
+	 * display.
+	 */
 	private void startPostTimer() {
 		
 		Platform.runLater(() -> postLabel.setText("There's a timer before you start the next step. Relax for a bit!"));
@@ -274,6 +308,11 @@ public class CookController implements EventHandler<ActionEvent>, Initializable 
 		
 	} // end of startPostTimer
 	
+	/**
+	 * updateStep method manages advancing to the next step in the recipe, depending on the
+	 * number of step repeats left and whether there is a post-step delay timer. It returns 
+	 * to main menu if they user attempts to advance past the last step.
+	 */
 	private void updateStep() {
 		if (mplayer != null && mplayer.getStatus() != MediaPlayer.Status.STOPPED) {
 			mplayer.stop();

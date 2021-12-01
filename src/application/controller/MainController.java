@@ -21,7 +21,11 @@ import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 
 
-
+/**
+ * MainController class handles interaction with the Main view
+ * @author Thomas Herron hgo525
+ * @author Marcus
+ */
 public class MainController implements EventHandler<ActionEvent>, Initializable{
 
 	@FXML
@@ -30,7 +34,9 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	@FXML
     private ListView<String> recipeList;
 	
-	
+	/**
+	 * initialize method handle pre-launch view operations.
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//rotate the main.fxml image
@@ -55,13 +61,12 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	}
 	
 	/**
+	 * handle method handles clicking the LET'S COOK button
 	 * @param event clicking the "Let's Cook!" button
 	 */
 	@Override
 	public void handle(ActionEvent event) {
-		try {
-			// TODO: check the cookbook listView and set currentRecipe to the selected index
-			if(Main.recipeSelected != -1)
+		if(Main.recipeSelected != -1 && Main.recipeSelected < Main.cookBook.getRecipes().size())
 			{
 				try
 				{
@@ -69,20 +74,18 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 					Parent root = FXMLLoader.load(getClass().getResource("../view/Prep.fxml"));
 					Main.stage.setScene(new Scene(root, 800, 600));
 					Main.stage.show();
-					System.out.println("");
+					
 				}
 				 catch(Exception e) {
 					e.printStackTrace();
 				}
 			}
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-	}
+			
+	} // end of handle method
 	
 	
 	/**
-	 * 
+	 * handleEdit method handles clicking the EDIT button
 	 * @param event clicking the "Edit" button
 	 */
 	public void handleEdit(ActionEvent event) {
@@ -106,14 +109,15 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 	}
 	
 	
-	
+	/**
+	 * handleAddRecipe button handles clicking the ADD RECIPE button
+	 * @param event clicking the ADD RECIPE button
+	 */
 	public void handleAddRecipe(ActionEvent event) {
 		try {
-			// Back-up code in case we enter Edit without a selected recipe. This will have the same outcome
-			// as hitting "Create new recipe"
-			if (Main.recipeSelected == -1) {
-				Main.currentRecipe = null;
-			}
+			
+			Main.currentRecipe = null;
+			Main.recipeSelected = -1;
 			
 			Parent root = FXMLLoader.load(getClass().getResource("../view/PreEdit.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 600));
@@ -124,7 +128,11 @@ public class MainController implements EventHandler<ActionEvent>, Initializable{
 		}
 	}
 	
-	
+	/**
+	 * handleList method handles clicking the recipe list and updates the variable
+	 * tracking the currently selected recipe
+	 * @param t clicking on the recipe listview
+	 */
 	public void handleList(MouseEvent t)
 	{
 		Main.recipeSelected = recipeList.getSelectionModel().getSelectedIndex();

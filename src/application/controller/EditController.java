@@ -27,6 +27,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
+/**
+ * The EditController class handles interactions with the Edit view.
+ * @author Thomas Herron hgo525
+ *
+ */
 public class EditController implements EventHandler<ActionEvent>, Initializable{
 
 	@FXML
@@ -73,7 +78,9 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 	
 	private int stepSelect;
 	
-	
+	/**
+	 * initialize method performs operations required before the GUI is displayed
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -91,6 +98,7 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 
 	
 	/**
+	 * handle method handles clicking of the BACK button by returning to the PreEdit view
 	 * @param event clicking the Back button
 	 */
 	@Override
@@ -106,13 +114,17 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 		}
 	}
 	
-	
+	/**
+	 * handleCBMedia method resets the text in the filePath textfield if the Media type 
+	 * choice box is clicked to prevent type-mismatch
+	 */
 	public void handleCBMedia() {
 		tfFilePath.setText("");
 	}
 	
 	/**
-	 * 
+	 * handleBrowse method handles clicking of the BROWSE button by opening a file chooser that only
+	 * displays the type of media currently displayed in the media choice box
 	 * @param event clicking the Browse button
 	 */
 	public void handleBrowse(ActionEvent event) {
@@ -136,7 +148,9 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 	}
 	
 	/**
-	 * 
+	 * handleAdd button handles clicking the ADD button by validating user entries and adding
+	 * the step to the recipe if valid. It also manages placement in the event a step is currently
+	 * selected in the tableview
 	 * @param event clicking the Add Step button
 	 */
 	public void handleAdd(ActionEvent event) {
@@ -256,8 +270,8 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 	} // end of handleAdd method
 	
 	/**
-	 * 
-	 * @param event clicking the Delete Step button
+	 * handleRemove handles clicking the Remove Step button
+	 * @param event clicking the Remove Step button
 	 */
 	public void handleRemove(ActionEvent event) {
 		stepSelect = tableSteps.getSelectionModel().getSelectedIndex();
@@ -270,8 +284,9 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 	
 	
 	/**
-	 * 
-	 * @param event clicking the Save button
+	 * handleSave method handles clicking the DONE button by adding or overwriting the current
+	 * recipe and calling the CookBook method to rewrite the .dat file.
+	 * @param event clicking the DONE button
 	 */
 	public void handleSave(ActionEvent event) {
 		
@@ -295,6 +310,9 @@ public class EditController implements EventHandler<ActionEvent>, Initializable{
 		}
 	}
 	
+	/**
+	 * refreshView method resets all text fields and choiceboxes
+	 */
 	public void refreshView() {
 		Main.currentRecipe.setStepsAsTableView(tableSteps);
 		tfName.setText("");
