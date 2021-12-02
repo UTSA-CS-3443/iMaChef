@@ -108,7 +108,9 @@ public class PrepController implements EventHandler<ActionEvent>, Initializable{
 	 */
 	public void handleAuto(ActionEvent event) {
 		Main.auto=true;
-		System.out.println("Auto selected");
+		
+		// Debug line
+		// System.out.println("Auto selected");
 				
 		
 		try {
