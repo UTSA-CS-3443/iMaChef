@@ -24,7 +24,7 @@ import javafx.animation.RotateTransition;
 /**
  * MainController class handles interaction with the Main view
  * @author Thomas Herron hgo525
- * @author Marcus
+ * @author Marcus Lopez (xst253)
  */
 public class MainController implements EventHandler<ActionEvent>, Initializable{
 
