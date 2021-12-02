@@ -12,8 +12,8 @@ import javafx.scene.Scene;
  * session with the app.
  * 
  * @author Thomas Herron hgo525
- * @author 
- * @author 
+ * @author Dylan Tran (lvw272)
+ * @author Marcus Lopez xst253
  * @author 
  *
  */

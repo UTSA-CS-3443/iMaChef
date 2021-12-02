@@ -22,13 +22,13 @@ tool@non-stick skillet
 tool@medium bowl
 tool@spatula
 Chop ingredients@Chop your peppers, onions, and any other ingredients that need chopping@5@min@media/Cutting_Bell_Pepper.mp4@video@0@min@0
-Sautee@In a non-stick skillet, sautee the bell peppers and onions in butter just until softened.@3@min@media/default.png@image@3@null@0
+Sautee@In a non-stick skillet, sauté the bell peppers and onions in butter just until softened.@3@min@media/default.png@image@3@null@0
 Add chili and olives@Remove from heat. Stir in the green chiles and olives and set aside.@1@min@media/default.png@image@0@min@0
 Whisk eggs@In a medium bowl, whisk together the eggs, milk, cumin and black pepper until blended.@2@min@media/default.png@image@0@min@0
 Prep skillet@Melt the butter in a 10-inch skillet over medium heat. Swirl it around and up the sides of the skillet to coat.@1@min@media/default.png@image@0@min@0
 Add eggs to skillet@When the butter begins to foam, pour in the eggs. Let the eggs cook for about 30 seconds, then begin running the spatula around the sides of the pan, lifting the edges of the omelet.@1@min@media/default.png@image@30@sec@0
 Spread egg@Uncooked egg from the top will flow underneath. (You can tilt the pan a little to encourage the flow.) Keep this up until the top surface is almost dry. (It only takes 3 or 4 minutes.)@3@min@media/default.png@image@0@min@0
-Add fillings@Spoon the sauteed vegetables evenly over the omelet surface and follow with the grated cheese.@1@min@media/dicing.jpg@image@0@min@0
+Add fillings@Spoon the sautéed vegetables evenly over the omelet surface and follow with the grated cheese.@1@min@media/dicing.jpg@image@0@min@0
 Turn off heat@Turn off heat.@30@sec@media/default.png@image@0@min@0
 Plate omelette@Take the spatula and run it about halfway under the omelet. Lift that side and fold the omelet in half. Slide the folded omelet back into the center of the pan, and let stand for a few seconds to allow cheese to melt.@1@min@media/default.png@image@0@min@0
 Garnish to taste@Garnish with sour cream, jalapenos and cilantro.@1@min@media/default.png@image@0@min@0
@@ -92,6 +92,18 @@ Preheat oven@Preheat oven to 375 degrees F(190 degrees C)@10@min@media/preheatOv
 Assemble layers@Spread one and a half cups of meat sauce in the bottom of a 9x13 inch baking dish. Arrange 6 noodles lengthwise over the meat sauce. Spread with half of the ricotta cheese mixture. Top with a third of the mozzarella cheese slices. Spoon one and a half cups of meat sauce over the mozzarella, and sprinkle with one quarter cup parmesan cheese. Repeat layers, and top with remaining mozzarella and parmesan cheese. Cover with foil and to prevent sticking, either spray foil with cooking spray, or make sure the foil does not touch the cheese.@10@min@media/layeringLasagna.jpg@image@0@min@0
 Bake@Bake in preheated oven for 25 minutes. Remove foil, and bake and additional 25 minutes.@50@min@media/bakeLasagna.jpg@image@0@min@0
 Cool@Cool for 15 minutes and enjoy! This is better than grandmas lasagna!@15@min@media/lasagna.jpg@image@0@min@0
+Cutting vegetable
+Pepper@1.0@ea
+tool@Knife
+Cut the pepper@Cut it@1@min@media/Cutting_Bell_Pepper.mp4@video@0@min@0
+Chop more peppers
+Pepper@1.0@ea
+tool@Knife
+Chop@Chop those peppers@1@min@media/Cutting_Bell_Pepper.mp4@video@0@min@0
+Chop onions
+Onion@1.0@ea
+tool@knife
+Chop@Chop onions@1@min@media/Dice_Fruits_and_Vegetables.mp4@video@0@min@0
 American Style Hotdog
 All Beef Hotdog@1.0@ea
 Hotdog Buns@1.0@ea
@@ -100,4 +112,73 @@ tool@Skillet or Grill
 tool@Tongs
 Remove hotdogs from the packaging@Remove the hotdogs from the packaging and rinse@0@min@media/rinseHotdogs.jpg@image@0@min@0
 Preheat the grill or Skillet to medium/high heat@Use tongs to place hotdogs on the grill or in the skillet. Grill until hotdogs display slight charring. Rotate frequently with tongs.@0@min@media/grillingHotdogs.jpg@image@0@min@0
-Serv@Place the hotdogs inside the open slit of the hotdog buns. Add condiments such as ketchup, mustard or sweet relish according to your personal preference. Enjoy a taste of American goodness!@0@min@media/hotdogs.jpg@image@0@min@0
+Serve@Place the hotdogs inside the open slit of the hotdog buns. Add condiments such as ketchup, mustard or sweet relish according to your personal preference. Enjoy a taste of American goodness!@0@min@media/hotdogs.jpg@image@0@min@0
+Apple Dip
+Light Cool Whip@16.0@oz can
+Large Container of Vanilla Yogurt@1.0@ea
+Large Container of Honey Roasted Peanut Butter@1.0@ea
+Fresh Apple@1.0@ea
+tool@Medium Mixing Bowl
+tool@Large Spoon
+tool@Small Knife
+Mix@Mix all ingredients together until smooth. Refrigerate until ready to serve.@1@min@media/mixIngredients.jpg@image@0@min@0
+Slice Apple@Slice your apple and dip into mixture. Enjoy!@1@min@media/appleDip.jpg@image@0@min@0
+Guacamole
+Ripe Avacado@2.0@ea
+Green Onion@2.0@ea
+Jalapeno Pepper@2.0@ea
+Tomato@1.0@ea
+Lime Juice@2.0@Tbsp
+Salt@1.5@tsp
+tool@Knife
+tool@Mixing Bowl
+tool@Fork
+tool@Serving Dish
+Prepare Avocado@Cut the avocado in half and discard the pit. Scrape the avocado pulp into the mixing bowl and coarsely mash with a fork.@1@min@media/mashAvocado.jpg@image@0@min@0
+Prepare Tomato@Chop tomato into small cube like pieces. Add chopped tomato to the mixing bowl.@1@min@media/chopTomato.jpg@image@0@min@0
+Prepare additional ingredients@Slice the white and light green portion of the green onion into thinly sliced pieces. Mince and remove seeds from the jalapenos. Add the tomato, green onions, jalapenos, lime juice and salt to the mixing bowl until combined.@1@min@media/guacamole.jpg@image@0@min@0
+Serve@Scrape guacamole into the serving dish. Voilà, enjoy with your favorite corn chips.@1@min@media/serveGuacamole.png@image@0@min@0
+Red Ramos Lemonade
+Country Time Pink Lemonade Mix@1.0@cup
+Sugar@1.5@cup
+Small Bag of Frozen Fruit@1.0@ea
+Ice@4.0@cup
+Water@3.0@cup
+tool@Pitcher
+tool@Long Spoon
+Make lemonade@Pour fruit into pitcher. Combine all ingredients together in the pitcher. Add ice. Stir ingredients together and enjoy cold.@1@min@/Users/rodericksimms/Desktop/lemonade.jpg@image@0@min@0
+Almond Butter Cookies
+Almond Butter@1.5@cup
+Salted Butter or Butter Substitute@1.5@cup
+Raw Honey@0.25@cup
+Egg@1.0@ea
+Sweet and Low or Sugar Substitute@1.5@cup
+Baking Soda@1.5@tsp
+Baking Soda@1.0@/2 tsp
+Baking Powder @1.0@/2 tsp
+French Vanilla Powdered Creamer@0.5@/tsp
+All Purpose Flour@1.0@1/4 cup
+tool@Baking Sheet
+tool@Oven
+tool@Spatula
+Mix wet ingredients@Mix almond butter, Butter, Honey and egg together in a mixing bowl.@1@min@/Users/rodericksimms/Desktop/mixAlmondButter.jpg@image@0@min@0
+Mix dry ingredients@Mix sugar substitute, baking soda, baking powder, creamer, and flour in the other mixing bowl.@1@min@/Users/rodericksimms/Downloads/dryIngredients.jpg@image@0@min@0
+Combine wet and dry ingredients@Fold wet and dry ingredients into each other until blended together. Preheat oven to 375 degrees.@1@min@/Users/rodericksimms/Downloads/combineIngredients.jpg@image@0@min@0
+Bake@Roll ingredients into balls. Flatten each ball into cookie shape and place on the baking sheet with half and inch space between each cookie. Bake for approximately 12-13 minutes. You will bake the cookies until almost done when the edge is just starting to change color. Let the cookies cool and enjoy.@15@min@/Users/rodericksimms/Downloads/cookies.jpg@image@0@min@0
+Not Yo' Momma's Banana Pudding
+Box of Vanilla Wafers@2.0@ea
+Fresh Bananas@8.0@ea
+Milk@2.0@cup
+Box of Iinstant Vanilla Pudding@1.0@ea
+Softened Cream Cheese@8.0@oz
+Sweetened Condensed Milk@14.0@oz
+Cool Whip@12.0@oz
+tool@13x9 Baking Dish
+tool@2 Mixing Bowls
+tool@Handheld Mixer
+tool@Spatula
+Line baking dish@Line the baking dish with vanilla wafers@1@min@media/lineDish.jpg@image@0@min@0
+Combine Milk and Pudding@Combine the milk and pudding mix in a mixing bowl and blend well with a handheld mixer or wire wisk if you do not have one.@1@min@media/mixpudding.jpg@image@0@min@0
+Combine Cream Cheese and Condensed Milk@Combine cream cheese and condensed milk in the other mixing bowl until a smooth consistency.@1@min@media/creamCheeseCondensedMilk.jpg@image@0@min@0
+Combine all ingredients into one bowl@Fold pudding mixture and cool whip into the cream cheese mixture and mix until well blended. Slice bananas into coin-like slices. Add a layer of banana slices on top of the wafers lining the baking dish. Next, pour a layer of pudding over the bananas and wafers.@1@min@media/pourPudding.jpg@image@0@min@0
+Repeat layers@Repeat the layering process until all ingredients have been used. Garnish top with remaining wafers and refrigerate until ready to serve@1@min@media/bananaPudding.jpg@image@0@min@0
