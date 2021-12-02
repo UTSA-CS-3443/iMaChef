@@ -35,7 +35,7 @@ iMaChef media folder where you may choose from the images provided. You may do t
 
 To edit a recipe, select it while on the Main menu and click the "Edit Recipe" button (clicking the Edit button 
 without selecting a recipe will have the same effect as clicking the "Add a NEW Recipe" button). You may make any 
-changes you but they will not be saved until you click the "Done" button on the Steps screen.
+changes you wish but they will not be saved until you click the "Done" button on the Steps screen.
 
 The current repository contains a sample cookbook.dat file in the "data" folder, and "media" in the media folder. 
 If you wish to remove these recipes, simply clear the cookbook.dat file in a text editor (or replace with an empty 
@@ -50,10 +50,6 @@ cookbook.dat.bak file to undo the last save.
 
 
 # Known bugs
-Console may occasionally display errors related to cancelled or defunct timers. This error 
-does not appear to affect app function at this time, but if you see a timer not working, try
-switching steps and coming back.
-
 The TextFlow in the Cook view sometimes cuts off recipe step descriptions. At this time we're 
 unsure how to fix this, as there do not appear to be any issues with the code for replacing 
 the text. We believe this may be a JavaFX issue.
@@ -66,11 +62,15 @@ There is a known issue where the cook view will not always display a step's imag
 this might be a format/compatibility issue with JavaFX, as this only seems to occur for a 
 specific and limited number of images.
 
+Possibly fixed: Console may occasionally display errors related to cancelled or defunct timers. 
+This error does not appear to affect app function at this time, but if you see a timer not working, 
+try switching steps and coming back.
+
 
 # Requirements and Compatibility
 This app was coded with Java 9 and Scenebuilder 2.0. We recommend compiling with Java 9. If there 
 are compiler/IDE issues after import, confirm your clone has the correct build path and compiler 
-settings, and libraries in the ClassPath. (We've had issues with these resetting to periodically 
+settings, and libraries in the ClassPath. (We've had issues with these resetting periodically 
 after pulls)
 
 
