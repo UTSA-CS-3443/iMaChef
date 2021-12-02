@@ -133,15 +133,15 @@ public class CookBook {
 				System.out.println(tempRec.getName());
 				for (Ingredient ing : tempRec.getIngredients()) {
 					outPrint.println(ing.toData());
-					System.out.println(ing.toData());
+					// System.out.println(ing.toData());
 				}
 				for (String tool : tempRec.getTools()) {
 					outPrint.println("tool@" + tool);
-					System.out.println("tool@" + tool);
+					// System.out.println("tool@" + tool);
 				}
 				for (Step tempStep : tempRec.getSteps()) {
 					outPrint.println(tempStep.toData());
-					System.out.println(tempStep.toData());
+					// System.out.println(tempStep.toData());
 				}
 			}
 			System.out.println("Write completed");

@@ -3,7 +3,7 @@ Egg@1.0@ea
 tool@Pot - 1QT
 Add Ingredients@Add egg to pot and cover with water@1@min@media/default.png@image@0@null@0
 Boil the egg@Boil to desired level of doneness.@8@min@media/Boil_Water.mp4@video@0@min@0
-Tex-Mex Omelette
+Tex-Mex Omelette (Internet recipe)
 Chopped Red Peppers@1.0@/4 cup
 Chopped Green Peppers@1.0@/4 cup
 Chopped Onion@1.0@/4 cup
@@ -22,17 +22,17 @@ tool@non-stick skillet
 tool@medium bowl
 tool@spatula
 Chop ingredients@Chop your peppers, onions, and any other ingredients that need chopping@5@min@media/Cutting_Bell_Pepper.mp4@video@0@min@0
-Sautee@In a non-stick skillet, sauté the bell peppers and onions in butter just until softened.@3@min@media/default.png@image@3@null@0
+Sautee@In a non-stick skillet, sautee the bell peppers and onions in butter just until softened.@3@min@media/default.png@image@3@null@0
 Add chili and olives@Remove from heat. Stir in the green chiles and olives and set aside.@1@min@media/default.png@image@0@min@0
 Whisk eggs@In a medium bowl, whisk together the eggs, milk, cumin and black pepper until blended.@2@min@media/default.png@image@0@min@0
 Prep skillet@Melt the butter in a 10-inch skillet over medium heat. Swirl it around and up the sides of the skillet to coat.@1@min@media/default.png@image@0@min@0
 Add eggs to skillet@When the butter begins to foam, pour in the eggs. Let the eggs cook for about 30 seconds, then begin running the spatula around the sides of the pan, lifting the edges of the omelet.@1@min@media/default.png@image@30@sec@0
 Spread egg@Uncooked egg from the top will flow underneath. (You can tilt the pan a little to encourage the flow.) Keep this up until the top surface is almost dry. (It only takes 3 or 4 minutes.)@3@min@media/default.png@image@0@min@0
-Add fillings@Spoon the sautéed vegetables evenly over the omelet surface and follow with the grated cheese.@1@min@media/dicing.jpg@image@0@min@0
+Add fillings@Spoon the sauteed vegetables evenly over the omelet surface and follow with the grated cheese.@1@min@media/dicing.jpg@image@0@min@0
 Turn off heat@Turn off heat.@30@sec@media/default.png@image@0@min@0
 Plate omelette@Take the spatula and run it about halfway under the omelet. Lift that side and fold the omelet in half. Slide the folded omelet back into the center of the pan, and let stand for a few seconds to allow cheese to melt.@1@min@media/default.png@image@0@min@0
 Garnish to taste@Garnish with sour cream, jalapenos and cilantro.@1@min@media/default.png@image@0@min@0
-Three-Bean Chili
+Three-Bean Chili (Internet recipe)
 Tomatoes@6.0@ea
 Green Peppers@3.0@ea
 Pinto beans@1.0@can
@@ -170,3 +170,36 @@ Combine Milk and Pudding@Combine the milk and pudding mix in a mixing bowl and b
 Combine Cream Cheese and Condensed Milk@Combine cream cheese and condensed milk in the other mixing bowl until a smooth consistency.@1@min@media/creamCheeseCondensedMilk.jpg@image@0@min@0
 Combine all ingredients into one bowl@Fold pudding mixture and cool whip into the cream cheese mixture and mix until well blended. Slice bananas into coin-like slices. Add a layer of banana slices on top of the wafers lining the baking dish. Next, pour a layer of pudding over the bananas and wafers.@1@min@media/pourPudding.jpg@image@0@min@0
 Repeat layers@Repeat the layering process until all ingredients have been used. Garnish top with remaining wafers and refrigerate until ready to serve@1@min@media/bananaPudding.jpg@image@0@min@0
+(iMaChef Demo Recipe) Herron's 3 Bean Chili
+bell peppers@3.0@ea
+jalapeno@8.0@ea
+garlic@8.0@clove
+ground beef, lean@2.0@lb
+kidney beans@15.0@oz can
+pinto beans@15.0@oz can
+black beans@15.0@oz can
+diced tomatoes@28.0@oz can
+onion (optional)@1.0@ea
+chili powder@3.0@Tbsp
+italian seasoning@2.0@Tbsp
+cheddar cheese (optional)@2.0@cup
+olive oil@2.0@Tbsp
+tool@cutting board
+tool@paring knife
+tool@large bowl
+tool@4qt pot or large, deep skillet
+tool@long spoon
+Intro@Welcome to iMaChef! This is a demo recipe made to show how iMaChef might be used with pre-made recipes.@1@min@media/3bc-00-Intro.mp4@video@0@min@0
+Cut peppers@Cut your peppers into strips or chunks. Removing seeds and white inner flesh will reduce the intensity of the flavor if desired.@4@min@media/3bc-01-Peppers.mp4@video@0@min@0
+Slice jalapenos@Slice your jalapenos. Again, removing seeds and inner flesh will reduce the spiciness if desired. Store in the large bowl with your peppers.@4@min@media/3bc-02-Jalapenos.mp4@video@0@min@0
+Cut garlic@Peel and cut your garlic into chunks based on the intensity of flavor you want. Larger for stronger flavor.@8@min@media/3bc-03-Garlic.mp4@video@0@min@0
+Cut onion@(Optional) Cut your onion now if you plan to add it to the mix. (Pause auto-play if so)@30@sec@media/default.png@image@0@min@0
+Heat skillet@Coat your skillet with a light drizzle of oil and add your beef.@3@min@media/3bc-04-Skillet.mp4@video@0@min@0
+Brown beef@Constantly break up and turn over the beef to brown the surface@5@min@media/3bc-05-Brown-beef.mp4@video@0@min@0
+Add garlic@Add the garlic to your skillet or pot. Stir a bit to help the garlic make contact with the cooking surface@3@min@media/3bc-06-Add-Garlic.mp4@video@0@min@0
+Add peppers@Add your peppers and jalapenos (and optionally onions) and stir around. Give them some time to cook and reduce if you're using a skillet in lieu of a pot.@5@min@media/3bc-07-Add-Peppers.mp4@video@0@min@0
+Add the rest@Add your beans, tomatoes and spices and give it all a good stir to mix. (Sorry about the sound in the video. The problem was with the phone recording, not the app!)@4@min@media/3bc-08-Add-Rest.mp4@video@0@min@0
+Stir@Give it a good stir now, then take a break!@1@min@media/3bc-09-Stir.mp4@video@10@min@0
+Stir again! (x8)@Come back to stir every 10 minutes or so. Scrape the sides and bottom of the pot to make sure nothing is sticking, and give the ingredients a good shuffle. If your chili is drying out and sticking, add about 6-8oz of water so it can keep simmering while the vegetables reduce. Then take a break and keep listening for the app!@1@min@media/3bc-10-Stir-Repeat.mp4@video@10@min@7
+Enjoy@If your chili doesn't look ready, you can use the Back button to requeue a few stir reminders. Once you like the way it looks, take it off the heat and serve with shredded cheddar, green or white onions, fritos, crackers, rice, or anything else you like!@3@min@media/3bc-11-Enjoy.mp4@video@0@min@0
+Thank you!@Thank you for trying our app! Hope you enjoy the chili!@1@min@media/default.png@image@0@min@0

@@ -59,7 +59,7 @@
                            </children>
                         </VBox>
                      </children></Pane>
-                  <TextFlow fx:id="tfDesc" prefHeight="150.0" prefWidth="400.0" textAlignment="CENTER" VBox.vgrow="NEVER" />
+                  <TextFlow fx:id="tfDesc" prefHeight="150.0" prefWidth="350.0" textAlignment="CENTER" VBox.vgrow="NEVER" />
                </children>
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="NEVER">

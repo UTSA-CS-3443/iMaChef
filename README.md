@@ -13,6 +13,8 @@ step progression, built-in timers, and per-step media displays.
 Import the repository into your Java IDE, compile, and run. (See Requirements and Compatibility for issues at this 
 step)
 
+For seeing all the app features, we recommend the recipe "(iMaChef Demo Recipe) Herron's 3 Bean Chili".
+
 To run the recipe helper, select the recipe from the list and click the "Let's Cook!" button. The Prep view will
 give you a list of tools and ingredients you need. The checkboxes are there for your own use, and are optional
 (they do not need to be checked to continue). You can use either the "Let's Cook!" or "Auto" buttons to continue.
