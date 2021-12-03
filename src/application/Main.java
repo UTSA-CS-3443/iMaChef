@@ -14,7 +14,7 @@ import javafx.scene.Scene;
  * @author Thomas Herron hgo525
  * @author Dylan Tran (lvw272)
  * @author Marcus Lopez xst253
- * @author 
+ * @author Roderick Simms aak759
  *
  */
 
